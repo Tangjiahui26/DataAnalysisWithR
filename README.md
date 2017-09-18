@@ -20,4 +20,4 @@ I hope I can learn some data analysis skills and the use of R programming Langua
      + Commit changes and push into Chithub
 - Use R Markdown
      + Add R Markdown document [Thursday September 14](http://stat545.com/block006_care-feeding-data.html)
-     + Render it to the  `github_document` format and push them to Github with commits
+     + Render it to the  `github_document` format files and push them to Github with commits
