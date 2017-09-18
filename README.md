@@ -36,4 +36,4 @@ I did PULLED my repository to local and edit `README.md` with two different ways
 
 ***How did it all work for the R Markdown document?***
 
-Everything worked well finally after doing small fixes and tweaks. I have encoutered with some problems, and I just looked up the materials and tried again.
+Everything worked well finally after doing small fixes and tweaks. I have encoutered with some problems like failing to add commits by RStudio,and I just tried again and it worked.
