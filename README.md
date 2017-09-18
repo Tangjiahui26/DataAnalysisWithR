@@ -2,6 +2,13 @@
 
 Hi, Everyone! Welcome to this repo and feel free to look~
 
+## Status
+
+|    **Item**     | **Status**                        |
+|-----------------|-----------------------------------|
+| Workday         | :manstudent: :mantechnologist:    |
+| Weekend         | :tennis: :badminton: :videogame:  |
+
 ## Introduction
 
 My name is **Jiahui Tang**, and I go by ~~Jerry~~ Jarry. I am a new master of Engineering student in Electrical & Computer Engineering. I did my undergraduate study in Sichuan University(*Chengdu, China*), majoring in Information Security. Recently I am interested in areas of Software Engineering and Computer Systems.
