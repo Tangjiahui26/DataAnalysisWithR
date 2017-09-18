@@ -29,7 +29,7 @@ I hope I can learn some data analysis skills and the use of R programming Langua
      + Add R Markdown document [Thursday September 14](http://stat545.com/block006_care-feeding-data.html)
      + Render it to the  `github_document` format files and push them to Github with commits
 
-## Report my process
+## Report My Process
 
 ***Did you edit in the browser at github.com?***
 
@@ -52,4 +52,4 @@ Everything worked well finally after doing small fixes and tweaks. I have encout
 
 ## Summary
 
-I think Github is very useful for IT workers, and we can find so many open source Projects and also can manage our code remotely. R Markdown has its own syntax, it would be helpful to edit some supporting files and generate PDF files, HTML Files.
+I think Github is very useful for IT workers, and we can find so many open source Projects and also can manage our code remotely. R Markdown has its own syntax, it would be helpful to edit some supporting files and generate PDF files, HTML files.
