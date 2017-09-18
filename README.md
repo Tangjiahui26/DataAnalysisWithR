@@ -8,3 +8,6 @@ My name is **Jiahui Tang**, and I go by ~~Jerry~~ Jarry. I am a new master of En
 
 I hope I can learn some data analysis skills and the use of R programming Language by taking [STAT 545 & 547M](http://stat545.com).
 
+![](http://img.mp.itc.cn/upload/20170227/6993d2232f99469d8b3870b3243a4b65.gif)
+
+
