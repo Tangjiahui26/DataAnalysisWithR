@@ -52,4 +52,4 @@ Everything worked well finally after doing small fixes and tweaks. I have encout
 
 ## Summary
 
-I think Github is very useful for IT workers, and we can find so many open source Projects and also can manage our code remotely. R Markdown contains LaTeX, HTML and its own syntax, it would be helpful to edit some supporting files and generate PDF files.
+I think Github is very useful for IT workers, and we can find so many open source Projects and also can manage our code remotely. R Markdown has its own syntax, it would be helpful to edit some supporting files and generate PDF files, HTML Files.
