@@ -22,3 +22,12 @@ str(gapminder)
 ```{r}
 head(gapminder)
 tail(gapminder)
+```
+
+## print basic info of gapminder
+```{r}
+names(gapminder)
+dim(gapminder)
+length(gapminder)
+nrow(gapminder)
+```

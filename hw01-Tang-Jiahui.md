@@ -76,3 +76,37 @@ tail(gapminder)
 ## 5 Zimbabwe    Africa  2002  39.989 11926563  672.0386
 ## 6 Zimbabwe    Africa  2007  43.487 12311143  469.7093
 ```
+
+## print basic info of gapminder
+
+```r
+names(gapminder)
+```
+
+```
+## [1] "country"   "continent" "year"      "lifeExp"   "pop"       "gdpPercap"
+```
+
+```r
+dim(gapminder)
+```
+
+```
+## [1] 1704    6
+```
+
+```r
+length(gapminder)
+```
+
+```
+## [1] 6
+```
+
+```r
+nrow(gapminder)
+```
+
+```
+## [1] 1704
+```
