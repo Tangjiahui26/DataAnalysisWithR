@@ -6,8 +6,8 @@ Hi, Everyone! Welcome to this repo and feel free to look~
 
 |    **Item**     | **Status**                        |
 |-----------------|-----------------------------------|
-| Workday         | :manstudent: :technologist(man):    |
-| Weekend         | :tennis: :badminton: :videogame:  |
+| Workday         | :school: :book:                   |
+| Weekend         | :tennis: :badminton: :video_game: |
 
 ## Introduction
 
