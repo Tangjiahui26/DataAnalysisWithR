@@ -18,16 +18,41 @@ library(tidyverse)
 str(gapminder)
 ```
 
-## print head and tail of gapminder
+## Print head and tail of gapminder
 ```{r}
 head(gapminder)
 tail(gapminder)
 ```
 
-## print basic info of gapminder
+## Print basic info of gapminder
 ```{r}
 names(gapminder)
 dim(gapminder)
 length(gapminder)
 nrow(gapminder)
+summary(gapminder)
 ```
+
+## Make figures:
+```{r}
+plot(lifeExp ~ year, gapminder)
+plot(lifeExp ~ log(gdpPercap), gapminder)
+```
+
+## Explore the lifeExp variable from gapminder
+```{r}
+head(gapminder$lifeExp)
+summary(gapminder$lifeExp)
+hist(gapminder$lifeExp)
+```
+
+## How factors can be put to work in figures
+The `continent` factor is easily mapped into “facets” or colors and a legend by the `ggplot2` package. *Making figures with `ggplot2` is covered elsewhere so feel free to just sit back and enjoy these plots or blindly copy/paste.*
+```{r}
+p <- ggplot(filter(gapminder, continent != "Oceania"),
+            aes(x = gdpPercap, y = lifeExp)) # just initializes
+p <- p + scale_x_log10() # log the x axis the right way
+p + geom_point() # scatterplot
+p + geom_point(aes(color = continent)) # map continent to color
+p + geom_point(alpha = (1/3), size = 3) + geom_smooth(lwd = 3, se = FALSE)
+p + geom_point(alpha = (1/3), size = 3) + facet_wrap(~ continent) + geom_smooth(lwd = 1.5, se = FALSE)

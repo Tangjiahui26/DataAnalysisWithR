@@ -43,7 +43,7 @@ str(gapminder)
 ##  $ gdpPercap: num  779 821 853 836 740 ...
 ```
 
-## print head and tail of gapminder
+## Print head and tail of gapminder
 
 ```r
 head(gapminder)
@@ -77,7 +77,7 @@ tail(gapminder)
 ## 6 Zimbabwe    Africa  2007  43.487 12311143  469.7093
 ```
 
-## print basic info of gapminder
+## Print basic info of gapminder
 
 ```r
 names(gapminder)
@@ -110,3 +110,103 @@ nrow(gapminder)
 ```
 ## [1] 1704
 ```
+
+```r
+summary(gapminder)
+```
+
+```
+##         country        continent        year         lifeExp     
+##  Afghanistan:  12   Africa  :624   Min.   :1952   Min.   :23.60  
+##  Albania    :  12   Americas:300   1st Qu.:1966   1st Qu.:48.20  
+##  Algeria    :  12   Asia    :396   Median :1980   Median :60.71  
+##  Angola     :  12   Europe  :360   Mean   :1980   Mean   :59.47  
+##  Argentina  :  12   Oceania : 24   3rd Qu.:1993   3rd Qu.:70.85  
+##  Australia  :  12                  Max.   :2007   Max.   :82.60  
+##  (Other)    :1632                                                
+##       pop              gdpPercap       
+##  Min.   :6.001e+04   Min.   :   241.2  
+##  1st Qu.:2.794e+06   1st Qu.:  1202.1  
+##  Median :7.024e+06   Median :  3531.8  
+##  Mean   :2.960e+07   Mean   :  7215.3  
+##  3rd Qu.:1.959e+07   3rd Qu.:  9325.5  
+##  Max.   :1.319e+09   Max.   :113523.1  
+## 
+```
+
+## Make figures:
+
+```r
+plot(lifeExp ~ year, gapminder)
+```
+
+![](hw01-Tang-Jiahui_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+
+```r
+plot(lifeExp ~ log(gdpPercap), gapminder)
+```
+
+![](hw01-Tang-Jiahui_files/figure-html/unnamed-chunk-5-2.png)<!-- -->
+
+## Explore the lifeExp variable from gapminder
+
+```r
+head(gapminder$lifeExp)
+```
+
+```
+## [1] 28.801 30.332 31.997 34.020 36.088 38.438
+```
+
+```r
+summary(gapminder$lifeExp)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   23.60   48.20   60.71   59.47   70.85   82.60
+```
+
+```r
+hist(gapminder$lifeExp)
+```
+
+![](hw01-Tang-Jiahui_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+
+## How factors can be put to work in figures
+The `continent` factor is easily mapped into “facets” or colors and a legend by the `ggplot2` package. *Making figures with `ggplot2` is covered elsewhere so feel free to just sit back and enjoy these plots or blindly copy/paste.*
+
+```r
+p <- ggplot(filter(gapminder, continent != "Oceania"),
+            aes(x = gdpPercap, y = lifeExp)) # just initializes
+p <- p + scale_x_log10() # log the x axis the right way
+p + geom_point() # scatterplot
+```
+
+![](hw01-Tang-Jiahui_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+
+```r
+p + geom_point(aes(color = continent)) # map continent to color
+```
+
+![](hw01-Tang-Jiahui_files/figure-html/unnamed-chunk-7-2.png)<!-- -->
+
+```r
+p + geom_point(alpha = (1/3), size = 3) + geom_smooth(lwd = 3, se = FALSE)
+```
+
+```
+## `geom_smooth()` using method = 'gam'
+```
+
+![](hw01-Tang-Jiahui_files/figure-html/unnamed-chunk-7-3.png)<!-- -->
+
+```r
+p + geom_point(alpha = (1/3), size = 3) + facet_wrap(~ continent) + geom_smooth(lwd = 1.5, se = FALSE)
+```
+
+```
+## `geom_smooth()` using method = 'loess'
+```
+
+![](hw01-Tang-Jiahui_files/figure-html/unnamed-chunk-7-4.png)<!-- -->
