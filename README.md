@@ -6,7 +6,7 @@ Hi, Everyone! Welcome to this repo and feel free to look~
 
 |    **Item**     | **Status**                        |
 |-----------------|-----------------------------------|
-| Workday         | :manstudent: :mantechnologist:    |
+| Workday         | :manstudent: :technologist(man):    |
 | Weekend         | :tennis: :badminton: :videogame:  |
 
 ## Introduction
