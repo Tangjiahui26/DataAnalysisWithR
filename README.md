@@ -26,11 +26,11 @@ I hope I can learn some data analysis skills and the use of R programming Langua
 
 ***Did you edit in the browser at github.com?***
 
-I created a new repository for Homework01, and added description and website to this repo. Then I opened `README.md` and edited the files in the browser. I can directly `PULL` my new changes with commits using Github, and also can `Clone or Download` the URL of this repo. It is easy to practice and add simple words.
+I created a new repository for Homework01, and added description and website to this repo. Then I opened `README.md` and edited the files in the browser. I can directly `PULL` my new changes with commits by using Github, and also can `Clone or Download` the URL of this repo. It is easy to practice and suited to add simple words.
 
 ***Did you pull, edit locally, save, commit, push to github.com?***
 
-I did PULLED my repository to local and edit `README.md` with two different ways.
+I PULLED my repository to local and edit `README.md` with two different ways.
 1. Edit by Mac Commandline(*Bash*). I looked up [GitHub Cheat Sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) and echo some simple words to `README.md` with commits, then pushed to GitHub.com.
 2. Edit by RStudio. I learned from [@jrebane's sample Readme](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/hw01_sample_readme.md) and its [raw source](https://raw.githubusercontent.com/STAT545-UBC/STAT545-UBC.github.io/master/hw01_sample_readme.md). I used some aspects of the Markdown syntax, like links, gif embed, bold and header, etc. For the `gapminder`, I used RStudio a lot.
 
