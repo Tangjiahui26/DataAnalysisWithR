@@ -10,9 +10,15 @@ output:
 
 ```{r}
 library(gapminder)
+library(tidyverse)
 ```
 
 ## Displays the structure of gapminder by using str()
 ```{r}
 str(gapminder)
 ```
+
+## print head and tail of gapminder
+```{r}
+head(gapminder)
+tail(gapminder)
