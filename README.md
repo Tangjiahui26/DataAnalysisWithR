@@ -45,6 +45,11 @@ I pulled my repository to local and edit `README.md` with two different ways.
 
 Everything worked well finally after doing small fixes and tweaks. I have encoutered with some problems like failing to add commits by RStudio,and I just tried again and it worked.
 
+## Links
+
+[Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet/)
+[GitHub Cheat Sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
+
 ## Summary
 
 I think Github is very useful for IT workers, and we can find so many open source Projects and also can manage our code remotely. R Markdown contains LaTeX, HTML and its own syntax, it would be helpful to edit some supporting files and generate PDF files.
