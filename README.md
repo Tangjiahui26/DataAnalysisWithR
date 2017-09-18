@@ -43,7 +43,7 @@ I pulled my repository to local and edit `README.md` with two different ways.
 
 ***How did it all work for the R Markdown document?***
 
-Everything worked well finally after doing small fixes and tweaks. I have encoutered with some problems like failing to add commits by RStudio,and I just tried again and it worked.
+Everything worked well finally after doing small fixes and tweaks. I have encoutered with some problems like failing to add commits by RStudio,and I just tried again and it worked. Also there were some warning() when Knit Files.
 
 ## Links
 
