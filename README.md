@@ -13,7 +13,7 @@ I hope I can learn some data analysis skills and the use of R programming Langua
 
 ## Homework01 Materials
 
-### [homwork01](http://stat545.com/hw01_edit-README.html)
+### [homework01](http://stat545.com/hw01_edit-README.html)
 
 - Edit README.md
      + Change `README.md` from Local bash, Rstudio and Github with some aspects of the Markdown syntax
