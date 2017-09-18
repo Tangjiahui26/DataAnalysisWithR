@@ -13,11 +13,11 @@ I hope I can learn some data analysis skills and the use of R programming Langua
 
 ## Homework01 Materials
 
-### [hw01](http://stat545.com/hw01_edit-README.html)
+### [homwork01](http://stat545.com/hw01_edit-README.html)
 
--Edit README.md
-     +Change `README.md` from Local bash, Rstudio and Github with some aspects of the Markdown syntax
-     +Commit changes and push into Chithub
--Use R Markdown
-     +Add R Markdown document [Thursday September 14](http://stat545.com/block006_care-feeding-data.html)
-     +Render it to the  `github_document` format and push them to Github with commits
+- Edit README.md
+     + Change `README.md` from Local bash, Rstudio and Github with some aspects of the Markdown syntax
+     + Commit changes and push into Chithub
+- Use R Markdown
+     + Add R Markdown document [Thursday September 14](http://stat545.com/block006_care-feeding-data.html)
+     + Render it to the  `github_document` format and push them to Github with commits
