@@ -1,0 +1,17 @@
+---
+title: "Hw01-Tang-Jiahui"
+author: "Jiahui Tang"
+date: "2017/9/18"
+output: html_document
+---
+## Load Packages
+
+```{r}
+library(tidyverse)
+library(gapminder)
+```
+
+## Displays the structure of gapminder by using str()
+```{r}
+str(gapminder)
+```
