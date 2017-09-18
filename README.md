@@ -30,10 +30,14 @@ I created a new repository for Homework01, and added description and website to 
 
 ***Did you pull, edit locally, save, commit, push to github.com?***
 
-I PULLED my repository to local and edit `README.md` with two different ways.
+I pulled my repository to local and edit `README.md` with two different ways.
 1. Edit by Mac Commandline(*Bash*). I looked up [GitHub Cheat Sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) and echo some simple words to `README.md` with commits, then pushed to GitHub.com.
 2. Edit by RStudio. I learned from [@jrebane's sample Readme](https://github.com/STAT545-UBC/STAT545-UBC.github.io/blob/master/hw01_sample_readme.md) and its [raw source](https://raw.githubusercontent.com/STAT545-UBC/STAT545-UBC.github.io/master/hw01_sample_readme.md). I used some aspects of the Markdown syntax, like links, gif embed, bold and header, etc. For the `gapminder`, I used RStudio a lot.
 
 ***How did it all work for the R Markdown document?***
 
 Everything worked well finally after doing small fixes and tweaks. I have encoutered with some problems like failing to add commits by RStudio,and I just tried again and it worked.
+
+##Summary
+
+I think Github is very useful for IT worker, and we can find so many open source Projects and also can manage our code remotely. R Markdown contains LaTeX, HTML and its own syntax, it would be helpful to edit some supporting files and generate PDF files.
