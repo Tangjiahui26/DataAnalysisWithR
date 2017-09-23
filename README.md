@@ -12,5 +12,5 @@ I hope I can learn some data analysis skills and the use of R programming Langua
 
 |    **Item**     | **Due Date**          | **status** |
 |-----------------|-----------------------|------------|
-| [Homework01]  https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/tree/master/hw01    | September 19, 2017    |finished |
+| [Homework01](https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/tree/master/hw01) | September 19, 2017    |finished |
 | Homework02      | September 26, 2017    |            |
