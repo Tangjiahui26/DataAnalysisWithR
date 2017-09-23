@@ -49,4 +49,4 @@ head(gapminder)
  
  A5: As we know above, we can absolutely use different functions. I think some function like `nrow()` and `ncol()` are more specific to get direct answers, while others like `dim()`, `summary()` and `str()` would give basic informations and we can figure out what we want from the results.
  
- A6: From the results of `str()` and `head()`, we can get the type of each variable:country and continent are Factor,year and pop are Integer, LifeExp and gdpPercap are num(double).
+ A6: From the results of `str()` and `head()`, we can get the type of each variable:country and continent -> Factor,year and pop -> Integer, LifeExp and gdpPercap -> num(double).
