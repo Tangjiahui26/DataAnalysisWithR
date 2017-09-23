@@ -1,7 +1,7 @@
 
 # STAT545-hw01-Jiahui-Tang
 
-Hi, Everyone! Welcome to this repo for Homework02.:simple_smile:
+Hi, Everyone! Welcome to this repo for Homework02.:smirk:
 
 ## Homework02 Materials
 
