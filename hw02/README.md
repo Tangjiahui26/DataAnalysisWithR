@@ -19,7 +19,8 @@ Hi, Everyone! Welcome to this repo for Homework02.
 
 ## Links
 
-[Jenny’s ggplot2 tutorial](https://github.com/jennybc/ggplot2-tutorial/blob/master/gapminder-ggplot2-scatterplot.md) and corresponding [slides](https://speakerdeck.com/jennybc/ggplot2-tutorial)
-A ggplot2 tutorial by [Paul Hiemstra.](http://stcorp.nl/R_course/tutorial_ggplot2.html)
+1. [Jenny’s ggplot2 tutorial](https://github.com/jennybc/ggplot2-tutorial/blob/master/gapminder-ggplot2-scatterplot.md) and corresponding [slides](https://speakerdeck.com/jennybc/ggplot2-tutorial)
+
+2. A ggplot2 tutorial by [Paul Hiemstra.](http://stcorp.nl/R_course/tutorial_ggplot2.html)
 
 ## Summary
