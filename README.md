@@ -13,4 +13,4 @@ I hope I can learn some data analysis skills:smiley: and the use of R programmin
 |    **Item**     | **Due Date**          | **status** |
 |-----------------|-----------------------|------------|
 | :one:[Homework01](https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/tree/master/hw01) | September 19, 2017 |:white_check_mark:Finished |
-| :two:Homework02      | September 26, 2017    |In Progress |
+| :two:Homework02 | September 26, 2017    |In Progress |
