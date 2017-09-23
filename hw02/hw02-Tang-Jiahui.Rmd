@@ -25,6 +25,7 @@ class(gapminder)
 str(gapminder)
 ```
  A1: It is a data.frame.
+ 
  A2: Gapminder is actually a tibble(data.frame tbl/tbl_df), which is useful for `dplyr`. 
 
 Acutally I am kind of confused with `typeof()`, `mode()` and `class()`. There is a clear explanation on [stackoverflow](https://stackoverflow.com/questions/8855589/a-comprehensive-survey-of-the-types-of-things-in-r-mode-and-class-and-type). I believe  `mode()` would  get  the type or storage mode of an object ,while `typeof()` function would be more specific. The `class()` is used to define/identify what "type" an object is from the point of view of object-oriented programming in R.
@@ -43,6 +44,9 @@ str(gapminder)
 head(gapminder)
 ```
  A3: As we can see above, we can use `ncol()`, `length()` and `dim()` to find out the number of variables/columns.
+ 
  A4: Similarly, `nrow()`, `dim()` can be used to look up the number of rows/observations.
+ 
  A5: As we know above, we can absolutely use different functions. I think some function like `nrow()` and `ncol()` are more specific to get direct answers, while others like `dim()`, `summary()` and `str()` would give basic informations and we can figure out what we want from the results.
+ 
  A6: From the results of `str()` and `head()`, we can get the type of each variable:country and continent are Factor,year and pop are Integer, LifeExp and gdpPercap are num(double).
