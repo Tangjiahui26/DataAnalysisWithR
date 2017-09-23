@@ -1,0 +1,9 @@
+---
+title: "hw02-Tang-Jiahui"
+author: "Jiahui Tang"
+date: "2017/9/22"
+output:
+  html_document:
+    keep_md: yes
+  pdf_document: default
+---
