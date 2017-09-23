@@ -24,9 +24,9 @@ library(tidyverse)
 class(gapminder)
 str(gapminder)
 ```
- A1: It is a data.frame.
+  A1: It is a data.frame.
  
- A2: Gapminder is actually a tibble(data.frame tbl/tbl_df), which is useful for `dplyr`. 
+  A2: Gapminder is actually a tibble(data.frame tbl/tbl_df), which is useful for `dplyr`. 
 
 Acutally I am kind of confused with `typeof()`, `mode()` and `class()`. There is a clear explanation on [stackoverflow](https://stackoverflow.com/questions/8855589/a-comprehensive-survey-of-the-types-of-things-in-r-mode-and-class-and-type). I believe  `mode()` would  get  the type or storage mode of an object ,while `typeof()` function would be more specific. The `class()` is used to define/identify what "type" an object is from the point of view of object-oriented programming in R.
 
@@ -43,10 +43,66 @@ summary(gapminder)
 str(gapminder)
 head(gapminder)
 ```
- A3: As we can see above, we can use `ncol()`, `length()` and `dim()` to find out the number of variables/columns.
+  A3: 6. As we can see above, we can use `ncol()`, `length()` and `dim()` to find out the number of variables/columns.
  
- A4: Similarly, `nrow()`, `dim()` can be used to look up the number of rows/observations.
+  A4: 1704. Similarly, `nrow()`, `dim()` can be used to look up the number of rows/observations.
  
- A5: As we know above, we can absolutely use different functions. I think some function like `nrow()` and `ncol()` are more specific to get direct answers, while others like `dim()`, `summary()` and `str()` would give basic informations and we can figure out what we want from the results.
+  A5: As we know above, we can absolutely use different functions. I think some function like `nrow()` and `ncol()` are more specific to get direct answers, while others like `dim()`, `summary()` and `str()` would give basic informations and we can figure out what we want from the results.
  
- A6: From the results of `str()` and `head()`, we can get the type of each variable:country and continent -> Factor,year and pop -> Integer, LifeExp and gdpPercap -> num(double).
+  A6: From the results of `str()` and `head()`, we can get the type of each variable:country and continent -> Factor,year and pop -> Integer, LifeExp and gdpPercap -> num(double).
+ 
+## Explore individual variables
+
+We can easily find categorical variables and quantitative variables from the results above:
+
+*categorical variables*: country, continent
+*quantitative variables*:year, lifeExp, pop, gdpPercap
+
+We will pick `country` and `gdpPercap` to explore.
+- Q1: What are possible values (or range, whichever is appropriate) of each variable?
+  A1: For categorical variables, we can use some functions as follows:
+```{r}
+print(gapminder$country)
+summary(gapminder$country)
+gapminder %>% 
+  distinct(country)
+```
+  A1: We can use `print()` to print all values of `country` beacuse it is actually a Factor of gapminder. What's more, `summary()` and `distinct()` can also give the levels of `country`.
+
+  A1: For quantitative variables, we can use some functions as follows:
+```{r}
+print(gapminder$gdpPercap)
+summary(gapminder$gdpPercap)
+gapminder %>% 
+  summarise(min_gdpPercap=min(gdpPercap),max_gdpPercap=max(gdpPercap),mean_gdpPercap=mean(gdpPercap))
+```
+  A1:Similarly, We can use `print()` to print all values of `gdpPercap`. What's more, `summary()` and `summarise()` can also give the range of `gdpPercap`.
+  
+- Q2: What values are typical? What’s the spread? What’s the distribution? Etc., tailored to the variable at hand.
+
+In this part, categorical variable `continent` and quantitative variable `gdpPercap` will be used to explore.
+```{r}
+#*typical value*
+summary(gapminder$continent)
+table(gapminder$gdpPercap)
+```
+  A2: From above we can find that the typical value of `continent` is Africa, since it appears 624 times. For the quantitative variable `gdpPercap`, it seems does not have typical value because all values appear 1 times.
+  
+```{r}
+#*spread*
+#way1:plot the data
+plot(gapminder$continent)
+hist(gapminder$gdpPercap)
+#way2:calculating summary statistics like sd
+gapminder %>% 
+  summarise(sd = sd(gdpPercap))
+```
+  A2: We can tell this by plotting the data (boxplots or histograms) by using `plot()` and `hist()`, or calculating summary statistics like the standard deviation of that variable.
+  
+  The distribution refers to how values for that variable are distributed. You can see this by looking at a histogram for the variable as well. For example, does it follow a Normal distribution (bell curve), Uniform (a flat curve meaning that values are roughly equally likely to appear), or maybe there are other interesting patterns in the data as well.
+```{r}
+#*distribution*
+plot(gapminder$continent)
+hist(gapminder$gdpPercap)
+```
+  A3: For the distribution, we can also plot the data and figure out the trend of values by using plot() and hist() functions.
