@@ -7,3 +7,42 @@ output:
     keep_md: yes
   pdf_document: default
 ---
+## Load Packages
+
+```{r}
+library(gapminder)
+library(tidyverse)
+```
+
+## Smell test the data
+
+- Q1: Is it a data.frame, a matrix, a vector, a list?
+- Q2: What’s its class?
+```{r}
+#typeof(gapminder)
+#mode(gapminder)
+class(gapminder)
+str(gapminder)
+```
+ A1: It is a data.frame.
+ A2: Gapminder is actually a tibble(data.frame tbl/tbl_df), which is useful for `dplyr`. 
+
+Acutally I am kind of confused with `typeof()`, `mode()` and `class()`. There is a clear explanation on [stackoverflow](https://stackoverflow.com/questions/8855589/a-comprehensive-survey-of-the-types-of-things-in-r-mode-and-class-and-type). I believe  `mode()` would  get  the type or storage mode of an object ,while `typeof()` function would be more specific. The `class()` is used to define/identify what "type" an object is from the point of view of object-oriented programming in R.
+
+- Q3: How many variables/columns?
+- Q4: How many rows/observations?
+- Q5: Can you get these facts about “extent” or “size” in more than one way? Can you imagine different functions being useful in different contexts?
+- Q6: What data type is each variable?
+```{r}
+ncol(gapminder)
+length(gapminder)
+nrow(gapminder)
+dim(gapminder)
+summary(gapminder)
+str(gapminder)
+head(gapminder)
+```
+ A3: As we can see above, we can use `ncol()`, `length()` and `dim()` to find out the number of variables/columns.
+ A4: Similarly, `nrow()`, `dim()` can be used to look up the number of rows/observations.
+ A5: As we know above, we can absolutely use different functions. I think some function like `nrow()` and `ncol()` are more specific to get direct answers, while others like `dim()`, `summary()` and `str()` would give basic informations and we can figure out what we want from the results.
+ A6: From the results of `str()` and `head()`, we can get the type of each variable:country and continent are Factor,year and pop are Integer, LifeExp and gdpPercap are num(double).
