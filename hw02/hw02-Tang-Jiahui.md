@@ -2228,3 +2228,17 @@ boxplot(log10(pop) ~ continent,data = gapminder,
 
 ![](hw02-Tang-Jiahui_files/figure-html/unnamed-chunk-14-1.png)<!-- -->
 
+## Use filter(), select() and %>%
+
+Take all entries of Canada occuring from 1950-2010, and select the `year`, and `gdpPercap` columns, then piping into `ggplot()`.
+
+```r
+out1 <- gapminder %>% 
+   filter(country == "Canada",
+           year <= 2010, year >= 1950) %>% 
+    select(year, gdpPercap) %>% 
+  ggplot(aes(x = gdpPercap, y = year)) + geom_point(aes(color = year))
+out1
+```
+
+![](hw02-Tang-Jiahui_files/figure-html/unnamed-chunk-15-1.png)<!-- -->

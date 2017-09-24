@@ -23,7 +23,7 @@ Hi, Everyone! Welcome to this repo for Homework02.:smirk:
 
 2. A ggplot2 tutorial by [Paul Hiemstra.](http://stcorp.nl/R_course/tutorial_ggplot2.html)
 
-3. [Boxplot](http://www.statmethods.net/graphs/boxplot.html)
+3. [Boxplots](http://www.statmethods.net/graphs/boxplot.html)
 
 4. [Histograms and Density Plots](http://www.statmethods.net/graphs/density.html)
 
