@@ -35,5 +35,3 @@ work locally, then I pushed those documents into Github.
 4. [Histograms and Density Plots](http://www.statmethods.net/graphs/density.html)
 
 5. A clear explanation about [`typeof()`, `mode()` and `class()`](https://stackoverflow.com/questions/8855589/a-comprehensive-survey-of-the-types-of-things-in-r-mode-and-class-and-type) on stackoverflow.
-
-## Summary
