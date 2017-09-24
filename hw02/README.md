@@ -17,6 +17,13 @@ Hi, Everyone! Welcome to this repo for Homework02.:smirk:
 
 ## Report My Process
 
+1. When I tried to make a new homework repo, actually I did not kown how to create a new folder and how to move all the hw01 files into the hw01 folder, so I searched on the Internet and finnally used [`sourcetree'](https://www.sourcetreeapp.com) to make it
+work locally, then I pushed those documents into Github.
+
+2. Acutally I am kind of confused with `typeof()`, `mode()` and `class()`. There is a clear explanation on [stackoverflow](https://stackoverflow.com/questions/8855589/a-comprehensive-survey-of-the-types-of-things-in-r-mode-and-class-and-type). I believe `mode()` would get the type or storage mode of an object,while `typeof()` function would be more specific. The `class()` is used to define/identify what "type" an object is from the point of view of object-oriented programming in R.
+
+3.I think homework02 is not so tough, but honestly speaking, I spent a lot of time doing it. Hope I can become more skilled with R programming by more practise.
+
 ## Links
 
 1. [Jenny’s ggplot2 tutorial](https://github.com/jennybc/ggplot2-tutorial/blob/master/gapminder-ggplot2-scatterplot.md) and corresponding [slides](https://speakerdeck.com/jennybc/ggplot2-tutorial)
