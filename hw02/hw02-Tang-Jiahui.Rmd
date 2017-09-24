@@ -82,14 +82,14 @@ gapminder %>%
 
 In this part, categorical variable `continent` and quantitative variable `gdpPercap` will be used to explore.
 ```{r}
-#*typical value*
+#typical value
 summary(gapminder$continent)
 table(gapminder$gdpPercap)
 ```
   A2: From above we can find that the typical value of `continent` is Africa, since it appears 624 times. For the quantitative variable `gdpPercap`, it seems does not have typical value because all values appear 1 times.
   
 ```{r}
-#*spread*
+#spread
 #way1:plot the data
 plot(gapminder$continent)
 hist(gapminder$gdpPercap)
@@ -101,8 +101,9 @@ gapminder %>%
   
   The distribution refers to how values for that variable are distributed. You can see this by looking at a histogram for the variable as well. For example, does it follow a Normal distribution (bell curve), Uniform (a flat curve meaning that values are roughly equally likely to appear), or maybe there are other interesting patterns in the data as well.
 ```{r}
-#*distribution*
+#distribution
 plot(gapminder$continent)
 hist(gapminder$gdpPercap)
 ```
+  
   A3: For the distribution, we can also plot the data and figure out the trend of values by using plot() and hist() functions.
