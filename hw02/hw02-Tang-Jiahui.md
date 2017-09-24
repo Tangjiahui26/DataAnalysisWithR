@@ -2119,7 +2119,6 @@ gapminder %>%
 ```
   A2: We can tell this by plotting the data (boxplots or histograms) by using `plot()` and `hist()`, or calculating summary statistics like the standard deviation of that variable.
   
-  The distribution refers to how values for that variable are distributed. You can see this by looking at a histogram for the variable as well. For example, does it follow a Normal distribution (bell curve), Uniform (a flat curve meaning that values are roughly equally likely to appear), or maybe there are other interesting patterns in the data as well.
 
 ```r
 #distribution
@@ -2134,4 +2133,98 @@ hist(gapminder$gdpPercap)
 
 ![](hw02-Tang-Jiahui_files/figure-html/unnamed-chunk-8-2.png)<!-- -->
   
-  A3: For the distribution, we can also plot the data and figure out the trend of values by using plot() and hist() functions.
+  A3: For the distribution, we can also plot the data and figure out the trend of values by using `plot()` and `hist()` functions.
+  
+## Explore various plot types
+
+1. A scatterplot of two quantitative variables. 
+  + scatterplot1: This is the scatterplot of `year` and `log10(pop)`. We can add aesthetic mapping of transparency.Then, we can make other plots facetted by `continent` and fit a smoother through the data for each continent.
+
+```r
+#scatterplot1
+p <- ggplot(gapminder, aes(x = year, y = log10(pop)))
+p <- p + geom_point(alpha = 0.5)
+p
+```
+
+![](hw02-Tang-Jiahui_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+
+```r
+p1 <- p + facet_wrap(~ continent, scales = "free_y")
+p1
+```
+
+![](hw02-Tang-Jiahui_files/figure-html/unnamed-chunk-9-2.png)<!-- -->
+
+```r
+p2 <- p1 + geom_smooth(lwd = 1, se = FALSE) + aes(color = continent)
+p2
+```
+
+```
+## `geom_smooth()` using method = 'loess'
+```
+
+![](hw02-Tang-Jiahui_files/figure-html/unnamed-chunk-9-3.png)<!-- -->
+ 
+  + scatterplot2: A plot of `log10(gdpPercap)` and `lifeExp`, facetted by continent and fit a regression line through the data for each continent.
+
+```r
+#scatterplot2
+p3 <- ggplot(gapminder, aes(x = log(gdpPercap), y = lifeExp))
+p3 <- p3 + geom_point(aes(color = continent), alpha = 0.5)
+p3 <- p3 + facet_wrap(~ continent, scales = "free_y")
+p3 <- p3 + geom_smooth(lwd = 1, se = FALSE, method = 'lm') 
+p3
+```
+
+![](hw02-Tang-Jiahui_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
+ 
+  + scatterplot3: A plot of `log10(gdpPercap)` and `lifeExp`, facetted by countries from Americas and fit a smoother through the data for each country.
+
+```r
+#scatterplot3
+Americas <- filter(gapminder, continent == "Americas")
+p4 <- ggplot(Americas, aes(x = log(gdpPercap), y = lifeExp))
+p4 <- p4 + geom_point(alpha = 0.5)
+p4 <- p4 + facet_wrap(~ country, scales = "free_y")
+p4 <- p4 + geom_smooth(lwd = 1, se = FALSE) 
+p4
+```
+
+```
+## `geom_smooth()` using method = 'loess'
+```
+
+![](hw02-Tang-Jiahui_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+
+2. A plot of one quantitative variable. Maybe a histogram or densityplot or frequency polygon.
+  + Make a densityplot of `log10(pop)` by using `density()` and `plot()`.
+
+```r
+den_pop <- density(log10(gapminder$pop))
+plot(den_pop, main = "Densityplot of log10(pop)") 
+polygon(den_pop, col = "red", border = "green")
+```
+
+![](hw02-Tang-Jiahui_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+ 
+  + Make a histogram of `log10(pop)` by using `hist()`.
+
+```r
+hist(log10(gapminder$pop), col="red", main="Histogram of log10(pop)")
+```
+
+![](hw02-Tang-Jiahui_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
+
+3. A plot of one quantitative variable and one categorical. Maybe boxplots for several continents or countries.
+  + Make a boxplot for `log10(pop)` and `continent`.
+
+```r
+boxplot(log10(pop) ~ continent,data = gapminder, 
+        main = "Boxplots for log10(pop) and continent", 
+        xlab = "Continent", ylab = "log10(pop)", col="red")
+```
+
+![](hw02-Tang-Jiahui_files/figure-html/unnamed-chunk-14-1.png)<!-- -->
+
