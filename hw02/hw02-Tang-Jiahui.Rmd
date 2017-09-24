@@ -175,3 +175,11 @@ out1 <- gapminder %>%
   ggplot(aes(x = gdpPercap, y = year)) + geom_point(aes(color = year))
 out1
 ```
+
+## But I want to do more!
+
+I thought it would be wrong if running the code showing below because we are more likely to use `"%in%"` instead of `"=="`. We cannot get all the data for Rwanda and Afghanistan if we use `"=="`.
+```{r}
+filter(gapminder, country == c("Rwanda", "Afghanistan"))
+filter(gapminder, country %in% c("Rwanda", "Afghanistan"))
+```
