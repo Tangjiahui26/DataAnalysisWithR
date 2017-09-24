@@ -22,7 +22,7 @@ work locally, then I pushed those documents into Github.
 
 2. Acutally I am kind of confused with `typeof()`, `mode()` and `class()`. There is a clear explanation on [stackoverflow](https://stackoverflow.com/questions/8855589/a-comprehensive-survey-of-the-types-of-things-in-r-mode-and-class-and-type). I believe `mode()` would get the type or storage mode of an object,while `typeof()` function would be more specific. The `class()` is used to define/identify what "type" an object is from the point of view of object-oriented programming in R.
 
-3.I think homework02 is not so tough, but honestly speaking, I spent a lot of time doing it. Hope I can become more skilled with R programming by more practise.
+3. I think homework02 is not so tough, but honestly speaking, I spent a lot of time doing it. Hope I can become more skilled with R programming by more practise.
 
 ## Links
 
