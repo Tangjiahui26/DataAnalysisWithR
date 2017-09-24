@@ -23,4 +23,10 @@ Hi, Everyone! Welcome to this repo for Homework02.:smirk:
 
 2. A ggplot2 tutorial by [Paul Hiemstra.](http://stcorp.nl/R_course/tutorial_ggplot2.html)
 
+3. [Boxplot](http://www.statmethods.net/graphs/boxplot.html)
+
+4. [Histograms and Density Plots](http://www.statmethods.net/graphs/density.html)
+
+5. A clear explanation about [`typeof()`, `mode()` and `class()`](https://stackoverflow.com/questions/8855589/a-comprehensive-survey-of-the-types-of-things-in-r-mode-and-class-and-type) on stackoverflow.
+
 ## Summary
