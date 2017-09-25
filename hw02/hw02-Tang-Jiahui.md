@@ -2232,6 +2232,7 @@ boxplot(log10(pop) ~ continent,data = gapminder,
 
 Take all entries of Canada occuring from 1950-2010, and select the `year`, and `gdpPercap` columns, then piping into `ggplot()`.
 
+
 ```r
 out1 <- gapminder %>% 
    filter(country == "Canada",
