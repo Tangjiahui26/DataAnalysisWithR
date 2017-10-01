@@ -1,14 +1,9 @@
----
-title: "hw03-Tang-Jiahui"
-author: "Jiahui Tang"
-date: "2017/9/30"
-output:
-  html_document:
-    keep_md: yes
-  pdf_document: default
----
+# hw03-Tang-Jiahui
+Jiahui Tang  
+2017/9/30  
 
-```{r}
+
+```r
 suppressPackageStartupMessages(library(tidyverse))  # The tidyverse contains ggplot2!
 suppressPackageStartupMessages(library(gapminder))
 knitr::opts_chunk$set(fig.width=4, fig.height=3)

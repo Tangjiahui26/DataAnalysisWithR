@@ -1,5 +1,5 @@
 
-# STAT545-hw01-Jiahui-Tang
+# STAT545-hw03-Jiahui-Tang
 
 Hi, Everyone! Welcome to this repo for Homework03.:smirk:
 
