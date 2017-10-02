@@ -33,5 +33,7 @@ Make up your own! Between the dplyr coverage in class and the list above, I thin
 
 
 ## Links
+[..](https://stackoverflow.com/questions/29375169/highlight-minimum-and-maximum-points-in-faceted-ggplot2-graph-in-r)
 
+[..](https://stackoverflow.com/questions/3777174/plotting-two-variables-as-lines-using-ggplot2-on-the-same-graph)
 

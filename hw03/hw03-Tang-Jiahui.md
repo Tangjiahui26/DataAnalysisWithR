@@ -101,3 +101,46 @@ P4
     ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
 ![](hw03-Tang-Jiahui_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-5-1.png)
+
+Task3: Compute a trimmed mean of life expectancy for different years. Or a weighted mean, weighting by population. Just try something other than the plain vanilla mean.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+*We can easily use summarise() to get different kind of means of LifeExp, and weighted.mean() was uesd to compute the values of mean weighting by pop and gdpPercap.*
+
+``` r
+T3 <- gapminder %>% 
+  group_by(year) %>% 
+  summarise(mean_LifeExp = mean(lifeExp), 
+            weighted_by_pop = weighted.mean(lifeExp, pop),
+            weighted_by_gdpPercap = weighted.mean(lifeExp, gdpPercap))
+
+knitr::kable(T3)
+```
+
+|  year|  mean\_LifeExp|  weighted\_by\_pop|  weighted\_by\_gdpPercap|
+|-----:|--------------:|------------------:|------------------------:|
+|  1952|       49.05762|           48.94424|                 57.50267|
+|  1957|       51.50740|           52.12189|                 59.97587|
+|  1962|       53.60925|           52.32438|                 62.05187|
+|  1967|       55.67829|           56.98431|                 63.92627|
+|  1972|       57.64739|           59.51478|                 65.79301|
+|  1977|       59.57016|           61.23726|                 67.47203|
+|  1982|       61.53320|           62.88176|                 69.48395|
+|  1987|       63.21261|           64.41635|                 71.45846|
+|  1992|       64.16034|           65.64590|                 72.85761|
+|  1997|       65.01468|           66.84934|                 74.05185|
+|  2002|       65.69492|           67.83904|                 75.04541|
+|  2007|       67.00742|           68.91909|                 75.96507|
+
+*Plotting different means of LifeExp as lines using ggplot2 on the same graph.*
+
+``` r
+P5 <- ggplot(T3, aes(x = year, y = LifeExp)) +
+  geom_line(aes(y = mean_LifeExp, color = "mean_LifeExp")) +
+  geom_line(aes(y = weighted_by_pop, color = "weighted_by_pop")) +
+  geom_line(aes(y = weighted_by_gdpPercap, color = "weighted_by_gdpPercap")) +
+  labs(title = "Means of Life Expectancy for different years")
+P5
+```
+
+![](hw03-Tang-Jiahui_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-7-1.png)

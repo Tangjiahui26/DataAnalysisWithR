@@ -78,3 +78,32 @@ P4 <- P3 + geom_histogram() +
   
 P4
 ```
+
+## Task3: Compute a trimmed mean of life expectancy for different years. Or a weighted mean, weighting by population. Just try something other than the plain vanilla mean.
+
+*We can easily use summarise() to get different kind of means of LifeExp, and weighted.mean() was uesd to compute the values of mean weighting by pop and gdpPercap.*
+
+```{r}
+T3 <- gapminder %>% 
+  group_by(year) %>% 
+  summarise(mean_LifeExp = mean(lifeExp), 
+            weighted_by_pop = weighted.mean(lifeExp, pop),
+            weighted_by_gdpPercap = weighted.mean(lifeExp, gdpPercap))
+
+knitr::kable(T3)
+```
+
+*Plotting different means of LifeExp as lines using ggplot2 on the same graph.*
+
+```{r}
+P5 <- ggplot(T3, aes(x = year, y = LifeExp)) +
+  geom_line(aes(y = mean_LifeExp, color = "mean_LifeExp")) +
+  geom_line(aes(y = weighted_by_pop, color = "weighted_by_pop")) +
+  geom_line(aes(y = weighted_by_gdpPercap, color = "weighted_by_gdpPercap")) +
+  labs(title = "Means of Life Expectancy for different years")
+P5
+```
+
+
+
+
