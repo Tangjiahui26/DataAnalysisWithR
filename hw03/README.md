@@ -37,3 +37,5 @@ Make up your own! Between the dplyr coverage in class and the list above, I thin
 
 [..](https://stackoverflow.com/questions/3777174/plotting-two-variables-as-lines-using-ggplot2-on-the-same-graph)
 
+[..](https://cran.r-project.org/web/packages/dplyr/vignettes/window-functions.html)
+
