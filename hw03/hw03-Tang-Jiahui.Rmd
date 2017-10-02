@@ -2,15 +2,13 @@
 title: "hw03-Tang-Jiahui"
 author: "Jiahui Tang"
 date: "2017/9/30"
-output:
-  html_document:
-    keep_md: yes
-  pdf_document: default
+output: github_document
 ---
 
 ```{r}
 suppressPackageStartupMessages(library(tidyverse))  # The tidyverse contains ggplot2!
 suppressPackageStartupMessages(library(gapminder))
+knitr::opts_chunk$set(fig.width=10, fig.height=6)
 ```
 
 ## Task1: Get the maximum and minimum of GDP per capita for all continents.
@@ -29,6 +27,7 @@ Min_country <- gapminder %>%
   arrange(continent) %>% 
   mutate(Min_country_info = paste(country, year))
 Task1 <- data.frame(T1, Max_country$Max_country_info, Min_country$Min_country_info)
+
 knitr::kable(Task1)
 ```
 
