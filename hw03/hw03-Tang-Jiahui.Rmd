@@ -2,13 +2,16 @@
 title: "hw03-Tang-Jiahui"
 author: "Jiahui Tang"
 date: "2017/9/30"
-output: github_document
+output:
+  html_document:
+    keep_md: yes
+  pdf_document: default
 ---
 
 ```{r}
 suppressPackageStartupMessages(library(tidyverse))  # The tidyverse contains ggplot2!
 suppressPackageStartupMessages(library(gapminder))
-knitr::opts_chunk$set(fig.width=10, fig.height=6)
+knitr::opts_chunk$set(fig.width=15, fig.height=10)
 ```
 
 ## Task1: Get the maximum and minimum of GDP per capita for all continents.
@@ -33,7 +36,7 @@ knitr::kable(Task1)
 
 *I used `ggplot2` and `facetting` to make figures and distinguished the max/min GdpPercap and others in differnet colors.*
 
-```{r,fig.width=8}
+```{r}
 P1 <- gapminder %>% 
   ggplot(aes(x = year, y = gdpPercap))
 P2 <- P1 + facet_wrap(~ continent, scales = "free_y") +
