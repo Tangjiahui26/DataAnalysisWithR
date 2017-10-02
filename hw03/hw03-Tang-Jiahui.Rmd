@@ -13,7 +13,7 @@ knitr::opts_chunk$set(fig.width=15, fig.height=10)
 
 ## Task1: Get the maximum and minimum of GDP per capita for all continents.
 
-*To get the maximum and minimum of GdpPercap for continents, I firstly used summarise() to obtain max and min values for each continent, then filter() and mutate() to print the detailed information of the countries which have the max or min GDP per captia, finally created a new data.frame to show all the values above.*
+*To get the maximum and minimum of GdpPercap for continents, I firstly used summarise() to obtain max and min values for each continent, then filter() and mutate() to print the detailed information of the countries which have the max or min GDP per capita, finally created a new data.frame to show all the values above.*
 ```{r}
 T1 <- gapminder %>% 
   group_by(continent) %>% 
@@ -43,7 +43,38 @@ P2 <- P1 + facet_wrap(~ continent, scales = "free_y") +
         axis.title.x = element_text(size=15),
         axis.title.y = element_text(size=15),
         strip.text = element_text(size=18, face="bold"))+
+  labs(title="GdpPercap for all continents")+
   scale_colour_discrete("Max_GdpPercap/Min_GdpPercap")
 P2
 ```
 
+## Task2: Look at the spread of GDP per capita within the continents.
+
+*We can directly use summarise() to get mean, sd and max/min values of GDP per capita for each continent.From the table shown below, we can find that the sd value of Asia is the largest, while Africa has the smallest sd value. In addition, Europe has the largest mean value of GdpPercap.*
+
+```{r}
+T2 <-gapminder %>% 
+  group_by(continent) %>% 
+  summarise(min_gdpPercap = min(gdpPercap), max_gdpPercap = max(gdpPercap),
+            mean_gdpPercap = mean(gdpPercap), sd_gdpPercap = sd(gdpPercap))
+
+knitr::kable(T2)
+```
+
+*We can use geom_histogram() to make histograms of different continents. The results are similar to the table above.*
+
+```{r}
+P3 <- gapminder %>%
+  select(gdpPercap, continent) %>% 
+  ggplot(aes(x = gdpPercap, color = continent))
+P4 <- P3 + geom_histogram() +
+  facet_wrap(~ continent, scales = "free_y") +
+  theme_bw() +
+  theme(strip.background = element_rect(fill="orange"),
+        axis.title.x = element_text(size=15),
+        axis.title.y = element_text(size=15),
+        strip.text = element_text(size=18, face="bold"))+
+  labs(title="GdpPercap histogram for each continent")
+  
+P4
+```
