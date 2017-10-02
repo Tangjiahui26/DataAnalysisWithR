@@ -494,7 +494,7 @@ P11 <- ggplot(T8, aes(x = Gdp_z)) +
                label = ifelse
                (T8$Gdp_z == max(T8$Gdp_z) | T8$Gdp_z == median(T8$Gdp_z)|
                  T8$Gdp_z == min(T8$Gdp_z), paste(T8$country, "Gdp_z"), NA),
-                angle = 90, size = 5, color = "red")
+                angle = 90, size = 4, color = "red")
 P11
 ```
 
