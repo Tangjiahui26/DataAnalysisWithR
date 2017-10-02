@@ -19,7 +19,7 @@ knitr::opts_chunk$set(fig.width=15, fig.height=10)
 T1 <- gapminder %>% 
   group_by(continent) %>% 
   summarise(Max_GdpPercap = max(gdpPercap), Min_GdpPercap = min(gdpPercap))
-#print couuntry info
+#print country info
 Max_country <- gapminder %>% 
   filter(gdpPercap %in% T1$Max_GdpPercap) %>% 
   arrange(continent) %>% 
@@ -148,5 +148,67 @@ P8 <- ggplot(T4, aes(x = year, y = changes)) +
 P8
 ```
 
+## Task6: Find countries with interesting stories. 
+
+*I analyzed the level of development on Asian countries since 1980 by tables and figures.I computed the z-scores of LifeExp, gdpPercap and gdp in different countries. We can easily find that:*
+
++ A small part of country's gdp such as Japan and China was far more than most of the Asian countries' during this period. Japan's overall GDP was the highest, while Mongolia had the lowest.
++ The life expectancy of Japanese was the highest, while this value for Afghans was much lower than the average.
++ Kuwait and Singapore's gdp per capita was far more than the average during this time.
+
+```{r}
+T5 <- gapminder %>% 
+  filter(year > 1980, continent == "Asia") %>% 
+  group_by(country) %>% 
+  summarise(mean_LifeExp = mean(lifeExp), 
+            mean_gdpPercap = mean(gdpPercap),
+            mean_gdp = mean(gdpPercap * pop)) %>% 
+  mutate(LifeExp_z = ((mean_LifeExp - mean(mean_LifeExp)) / sd(mean_LifeExp)),
+         GdpPercap_z = ((mean_gdpPercap - mean(mean_gdpPercap)) / sd(mean_gdpPercap)),
+         Gdp_z = ((mean_gdp - mean(mean_gdp)) / sd(mean_gdp)))
+
+knitr::kable(T5)
+T6 <- arrange(T5, LifeExp_z) %>% 
+  select(country, LifeExp_z)
+
+knitr::kable(T6)
+T7 <- arrange(T5, GdpPercap_z) %>% 
+  select(country, GdpPercap_z)
+
+knitr::kable(T7)
+T8 <- arrange(T5, Gdp_z) %>% 
+  select(country, Gdp_z)
+
+knitr::kable(T8)
+```
+
+*Making some plots to analyze.*
+```{r}
+#plotting and print max median min 
+P9 <- ggplot(T6, aes(x = LifeExp_z)) +
+               geom_density(color = "blue")+
+               geom_text(aes(x = LifeExp_z, y = 0.3), 
+               label = ifelse
+               (T6$LifeExp_z == max(T6$LifeExp_z) | T6$LifeExp_z == median(T6$LifeExp_z)|
+                 T6$LifeExp_z == min(T6$LifeExp_z), paste(T6$country, "\n LifeExp_z"), NA),
+                angle = 60, size = 5, color = "red")
+P9
+P10 <- ggplot(T7, aes(x = GdpPercap_z)) +
+               geom_density(color = "blue")+
+               geom_text(aes(x = GdpPercap_z, y = 0.3), 
+               label = ifelse
+               (T7$GdpPercap_z == max(T7$GdpPercap_z) | T7$GdpPercap_z == median(T7$GdpPercap_z)|
+                 T7$GdpPercap_z == min(T7$GdpPercap_z), paste(T7$country, "\n GdpPercap_z"), NA),
+                angle = 60, size = 5, color = "red")
+P10
+P11 <- ggplot(T8, aes(x = Gdp_z)) +
+               geom_density(color = "blue")+
+               geom_text(aes(x = Gdp_z, y = 0.3), 
+               label = ifelse
+               (T8$Gdp_z == max(T8$Gdp_z) | T8$Gdp_z == median(T8$Gdp_z)|
+                 T8$Gdp_z == min(T8$Gdp_z), paste(T8$country, "Gdp_z"), NA),
+                angle = 90, size = 5, color = "red")
+P11
+```
 
 

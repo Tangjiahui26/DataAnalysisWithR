@@ -19,7 +19,7 @@ Task1: Get the maximum and minimum of GDP per capita for all continents.
 T1 <- gapminder %>% 
   group_by(continent) %>% 
   summarise(Max_GdpPercap = max(gdpPercap), Min_GdpPercap = min(gdpPercap))
-#print couuntry info
+#print country info
 Max_country <- gapminder %>% 
   filter(gdpPercap %in% T1$Max_GdpPercap) %>% 
   arrange(continent) %>% 
@@ -265,3 +265,239 @@ P8
     ## Warning: Removed 1 rows containing missing values (geom_path).
 
 ![](hw03-Tang-Jiahui_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-9-2.png)
+
+Task6: Find countries with interesting stories.
+-----------------------------------------------
+
+*I analyzed the level of development on Asian countries since 1980 by tables and figures.I computed the z-scores of LifeExp, gdpPercap and gdp in different countries. We can easily find that:*
+
+-   A small part of country's gdp such as Japan and China was far more than most of the Asian countries' during this period. Japan's overall GDP was the highest, while Mongolia had the lowest.
+-   The life expectancy of Japanese was the highest, while this value for Afghans was much lower than the average.
+-   Kuwait and Singapore's gdp per capita was far more than the average during this time.
+
+``` r
+T5 <- gapminder %>% 
+  filter(year > 1980, continent == "Asia") %>% 
+  group_by(country) %>% 
+  summarise(mean_LifeExp = mean(lifeExp), 
+            mean_gdpPercap = mean(gdpPercap),
+            mean_gdp = mean(gdpPercap * pop)) %>% 
+  mutate(LifeExp_z = ((mean_LifeExp - mean(mean_LifeExp)) / sd(mean_LifeExp)),
+         GdpPercap_z = ((mean_gdpPercap - mean(mean_gdpPercap)) / sd(mean_gdpPercap)),
+         Gdp_z = ((mean_gdp - mean(mean_gdp)) / sd(mean_gdp)))
+
+knitr::kable(T5)
+```
+
+| country            |  mean\_LifeExp|  mean\_gdpPercap|     mean\_gdp|  LifeExp\_z|  GdpPercap\_z|      Gdp\_z|
+|:-------------------|--------------:|----------------:|-------------:|-----------:|-------------:|-----------:|
+| Afghanistan        |       41.67833|         802.7341|  1.643003e+10|  -3.1486200|    -0.8408466|  -0.4642984|
+| Bahrain            |       72.79300|       21710.3958|  1.239705e+10|   0.7206047|     1.2134333|  -0.4696032|
+| Bangladesh         |       57.38883|         961.1976|  1.199549e+11|  -1.1949608|    -0.8252768|  -0.3281257|
+| Cambodia           |       55.61383|         889.1607|  1.027476e+10|  -1.4156887|    -0.8323548|  -0.4723948|
+| China              |       69.48400|        2394.1232|  2.955961e+12|   0.3091182|    -0.6844848|   3.4022515|
+| Hong Kong, China   |       78.82567|       26278.0387|  1.664686e+11|   1.4707893|     1.6622265|  -0.2669433|
+| India              |       60.78567|        1442.4067|  1.386517e+12|  -0.7725519|    -0.7779956|   1.3378623|
+| Indonesia          |       64.04267|        2530.3785|  4.981141e+11|  -0.3675318|    -0.6710971|   0.1692908|
+| Iran               |       66.14317|        8432.8227|  5.095137e+11|  -0.1063268|    -0.0911531|   0.1842854|
+| Iraq               |       60.32417|        6974.1899|  1.262570e+11|  -0.8299412|    -0.2344709|  -0.3198362|
+| Israel             |       77.61500|       19811.0855|  1.053451e+11|   1.3202384|     1.0268168|  -0.3473429|
+| Japan              |       80.07217|       26277.0313|  3.277102e+12|   1.6257962|     1.6621275|   3.8246672|
+| Jordan             |       68.53217|        4008.5746|  1.664127e+10|   0.1907542|    -0.5258571|  -0.4640206|
+| Korea, Dem. Rep.   |       68.56850|        2811.6103|  5.635705e+10|   0.1952724|    -0.6434647|  -0.4117799|
+| Korea, Rep.        |       73.24867|       14139.3276|  6.521251e+11|   0.7772686|     0.4695389|   0.3718711|
+| Kuwait             |       75.22017|       36187.1834|  6.891473e+10|   1.0224320|     2.6358484|  -0.3952620|
+| Lebanon            |       69.58117|        8073.0632|  2.794895e+10|   0.3212013|    -0.1265013|  -0.4491469|
+| Malaysia           |       71.23600|        8373.2691|  1.729981e+11|   0.5269860|    -0.0970046|  -0.2583546|
+| Mongolia           |       62.40717|        2210.4629|  5.287004e+09|  -0.5709124|    -0.7025304|  -0.4789555|
+| Myanmar            |       59.67000|         521.0000|  2.238513e+10|  -0.9112892|    -0.8685283|  -0.4564653|
+| Nepal              |       57.06817|         925.2007|  2.094007e+10|  -1.2348369|    -0.8288137|  -0.4583661|
+| Oman               |       70.66517|       18579.9678|  4.192581e+10|   0.4560007|     0.9058534|  -0.4307622|
+| Pakistan           |       61.02533|        1977.9927|  2.646729e+11|  -0.7427485|    -0.7253717|  -0.1377691|
+| Philippines        |       67.20767|        2575.0283|  1.874308e+11|   0.0260477|    -0.6667100|  -0.2393704|
+| Saudi Arabia       |       68.83517|       23498.1863|  4.351188e+11|   0.2284334|     1.3890924|   0.0864292|
+| Singapore          |       76.16800|       29247.7241|  1.110666e+11|   1.1402986|     1.9540126|  -0.3398170|
+| Sri Lanka          |       70.30250|        2554.7562|  4.733167e+10|   0.4109018|    -0.6687019|  -0.4236515|
+| Syria              |       69.92267|        3751.4779|  5.435774e+10|   0.3636681|    -0.5511181|  -0.4144097|
+| Taiwan             |       75.07667|       17642.8493|  3.824803e+11|   1.0045872|     0.8137770|   0.0171904|
+| Thailand           |       67.44667|        4869.4966|  2.909019e+11|   0.0557683|    -0.4412673|  -0.1032684|
+| Vietnam            |       67.87267|        1351.4980|  1.027960e+11|   0.1087429|    -0.7869279|  -0.3506958|
+| West Bank and Gaza |       69.67633|        5018.7315|  1.250723e+10|   0.3330356|    -0.4266043|  -0.4694583|
+| Yemen, Rep.        |       56.44333|        2076.9784|  3.205191e+10|  -1.3125373|    -0.7156459|  -0.4437500|
+
+``` r
+T6 <- arrange(T5, LifeExp_z) %>% 
+  select(country, LifeExp_z)
+
+knitr::kable(T6)
+```
+
+| country            |  LifeExp\_z|
+|:-------------------|-----------:|
+| Afghanistan        |  -3.1486200|
+| Cambodia           |  -1.4156887|
+| Yemen, Rep.        |  -1.3125373|
+| Nepal              |  -1.2348369|
+| Bangladesh         |  -1.1949608|
+| Myanmar            |  -0.9112892|
+| Iraq               |  -0.8299412|
+| India              |  -0.7725519|
+| Pakistan           |  -0.7427485|
+| Mongolia           |  -0.5709124|
+| Indonesia          |  -0.3675318|
+| Iran               |  -0.1063268|
+| Philippines        |   0.0260477|
+| Thailand           |   0.0557683|
+| Vietnam            |   0.1087429|
+| Jordan             |   0.1907542|
+| Korea, Dem. Rep.   |   0.1952724|
+| Saudi Arabia       |   0.2284334|
+| China              |   0.3091182|
+| Lebanon            |   0.3212013|
+| West Bank and Gaza |   0.3330356|
+| Syria              |   0.3636681|
+| Sri Lanka          |   0.4109018|
+| Oman               |   0.4560007|
+| Malaysia           |   0.5269860|
+| Bahrain            |   0.7206047|
+| Korea, Rep.        |   0.7772686|
+| Taiwan             |   1.0045872|
+| Kuwait             |   1.0224320|
+| Singapore          |   1.1402986|
+| Israel             |   1.3202384|
+| Hong Kong, China   |   1.4707893|
+| Japan              |   1.6257962|
+
+``` r
+T7 <- arrange(T5, GdpPercap_z) %>% 
+  select(country, GdpPercap_z)
+
+knitr::kable(T7)
+```
+
+| country            |  GdpPercap\_z|
+|:-------------------|-------------:|
+| Myanmar            |    -0.8685283|
+| Afghanistan        |    -0.8408466|
+| Cambodia           |    -0.8323548|
+| Nepal              |    -0.8288137|
+| Bangladesh         |    -0.8252768|
+| Vietnam            |    -0.7869279|
+| India              |    -0.7779956|
+| Pakistan           |    -0.7253717|
+| Yemen, Rep.        |    -0.7156459|
+| Mongolia           |    -0.7025304|
+| China              |    -0.6844848|
+| Indonesia          |    -0.6710971|
+| Sri Lanka          |    -0.6687019|
+| Philippines        |    -0.6667100|
+| Korea, Dem. Rep.   |    -0.6434647|
+| Syria              |    -0.5511181|
+| Jordan             |    -0.5258571|
+| Thailand           |    -0.4412673|
+| West Bank and Gaza |    -0.4266043|
+| Iraq               |    -0.2344709|
+| Lebanon            |    -0.1265013|
+| Malaysia           |    -0.0970046|
+| Iran               |    -0.0911531|
+| Korea, Rep.        |     0.4695389|
+| Taiwan             |     0.8137770|
+| Oman               |     0.9058534|
+| Israel             |     1.0268168|
+| Bahrain            |     1.2134333|
+| Saudi Arabia       |     1.3890924|
+| Japan              |     1.6621275|
+| Hong Kong, China   |     1.6622265|
+| Singapore          |     1.9540126|
+| Kuwait             |     2.6358484|
+
+``` r
+T8 <- arrange(T5, Gdp_z) %>% 
+  select(country, Gdp_z)
+
+knitr::kable(T8)
+```
+
+| country            |      Gdp\_z|
+|:-------------------|-----------:|
+| Mongolia           |  -0.4789555|
+| Cambodia           |  -0.4723948|
+| Bahrain            |  -0.4696032|
+| West Bank and Gaza |  -0.4694583|
+| Afghanistan        |  -0.4642984|
+| Jordan             |  -0.4640206|
+| Nepal              |  -0.4583661|
+| Myanmar            |  -0.4564653|
+| Lebanon            |  -0.4491469|
+| Yemen, Rep.        |  -0.4437500|
+| Oman               |  -0.4307622|
+| Sri Lanka          |  -0.4236515|
+| Syria              |  -0.4144097|
+| Korea, Dem. Rep.   |  -0.4117799|
+| Kuwait             |  -0.3952620|
+| Vietnam            |  -0.3506958|
+| Israel             |  -0.3473429|
+| Singapore          |  -0.3398170|
+| Bangladesh         |  -0.3281257|
+| Iraq               |  -0.3198362|
+| Hong Kong, China   |  -0.2669433|
+| Malaysia           |  -0.2583546|
+| Philippines        |  -0.2393704|
+| Pakistan           |  -0.1377691|
+| Thailand           |  -0.1032684|
+| Taiwan             |   0.0171904|
+| Saudi Arabia       |   0.0864292|
+| Indonesia          |   0.1692908|
+| Iran               |   0.1842854|
+| Korea, Rep.        |   0.3718711|
+| India              |   1.3378623|
+| China              |   3.4022515|
+| Japan              |   3.8246672|
+
+*Making some plots to analyze.*
+
+``` r
+#plotting and print max median min 
+P9 <- ggplot(T6, aes(x = LifeExp_z)) +
+               geom_density(color = "blue")+
+               geom_text(aes(x = LifeExp_z, y = 0.3), 
+               label = ifelse
+               (T6$LifeExp_z == max(T6$LifeExp_z) | T6$LifeExp_z == median(T6$LifeExp_z)|
+                 T6$LifeExp_z == min(T6$LifeExp_z), paste(T6$country, "\n LifeExp_z"), NA),
+                angle = 60, size = 5, color = "red")
+P9
+```
+
+    ## Warning: Removed 30 rows containing missing values (geom_text).
+
+![](hw03-Tang-Jiahui_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-11-1.png)
+
+``` r
+P10 <- ggplot(T7, aes(x = GdpPercap_z)) +
+               geom_density(color = "blue")+
+               geom_text(aes(x = GdpPercap_z, y = 0.3), 
+               label = ifelse
+               (T7$GdpPercap_z == max(T7$GdpPercap_z) | T7$GdpPercap_z == median(T7$GdpPercap_z)|
+                 T7$GdpPercap_z == min(T7$GdpPercap_z), paste(T7$country, "\n GdpPercap_z"), NA),
+                angle = 60, size = 5, color = "red")
+P10
+```
+
+    ## Warning: Removed 30 rows containing missing values (geom_text).
+
+![](hw03-Tang-Jiahui_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-11-2.png)
+
+``` r
+P11 <- ggplot(T8, aes(x = Gdp_z)) +
+               geom_density(color = "blue")+
+               geom_text(aes(x = Gdp_z, y = 0.3), 
+               label = ifelse
+               (T8$Gdp_z == max(T8$Gdp_z) | T8$Gdp_z == median(T8$Gdp_z)|
+                 T8$Gdp_z == min(T8$Gdp_z), paste(T8$country, "Gdp_z"), NA),
+                angle = 90, size = 5, color = "red")
+P11
+```
+
+    ## Warning: Removed 30 rows containing missing values (geom_text).
+
+![](hw03-Tang-Jiahui_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-11-3.png)
