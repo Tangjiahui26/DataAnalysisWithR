@@ -7,7 +7,7 @@ Jiahui Tang
 + Layout stretch goal: get table and figure side-by-side. [This gist](https://gist.github.com/jennybc/e9e9aba6ba18c72cec26) might get you started.
 *Applying this layout stretch to task03.*
 
-***The follow codes are kind of messy because I added CSS codes. You can find the result on hw03-Tang-Jiahui-I_want_do_more.html, or see the screenshot in /STAT545-hw-Tang-Jiahui/pics folder. ***
++ ***The follow codes are kind of messy because I added CSS codes. You can find the result on hw03-Tang-Jiahui-I_want_do_more.html, or see the screenshot in /STAT545-hw-Tang-Jiahui/pics folder.***
 
 
 ```r
