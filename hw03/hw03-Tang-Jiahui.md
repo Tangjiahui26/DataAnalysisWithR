@@ -533,7 +533,10 @@ P11
 
 ## But I want do more!
 
-+ Layout stretch goal: get table and figure side-by-side. [This gist](https://gist.github.com/jennybc/e9e9aba6ba18c72cec26) might get you started.*Applying this layout stretch to task03. You can find the result on hw03-Tang-Jiahui.html*
++ Layout stretch goal: get table and figure side-by-side. [This gist](https://gist.github.com/jennybc/e9e9aba6ba18c72cec26) might get you started.
+*Applying this layout stretch to task03.*
+
+***The follow codes are kind of messy because I added CSS codes. You can find the result on hw03-Tang-Jiahui.html, or see the screenshot in /STAT545-hw-Tang-Jiahui/pics folder. ***
 
 
 ```r
@@ -550,6 +553,7 @@ gtbl <- tbl_df(gapminder)
 </style>
 
 <div class="twoC">
+
 
  year   mean_LifeExp   weighted_by_pop   weighted_by_gdpPercap
 -----  -------------  ----------------  ----------------------
