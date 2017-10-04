@@ -32,7 +32,7 @@ Make up your own! Between the dplyr coverage in class and the list above, I thin
 
 ## Report My Process
 
-+ ***Homework03 is divided into two parts: `Task1-5, task6` and `I want do more`. Because they generate different kind of files(.md and .html), so I put them into two .rmd files: `hw03-Tang-Jiahui.rmd` and `hw03-Tang-Jiahui-I want do more.rmd`.***
++ ***Homework03 is divided into two parts: `Task1-5, task6` and `I want to do more`. Because they generate different kind of files(.md and .html), so I put them into two .rmd files: `hw03-Tang-Jiahui.rmd` and `hw03-Tang-Jiahui-I want do more.rmd`.***
 
 1. Homework03 gave us opportunity to manipulate and explore data in different way, and we can also find our own data and analyze using figures and tables. The whole process was very interesting and I learned a lot.
 
@@ -44,7 +44,7 @@ Make up your own! Between the dplyr coverage in class and the list above, I thin
 
 5. For task6, I found it was hard to add labels for density figures, maybe I should adjust the position, but I do not know how to do this, So I just print some countries on the figures.  
 
-6. For side-by-side plot and table(`I want do more`), I cannot adjust the size of table through using `.twoC .table {max-width: 10%; float: left}`.So I just divided them into half and half. The reuslt is shown below.
+6. For side-by-side plot and table(`I want to do more`), I cannot adjust the size of table through using `.twoC .table {max-width: 10%; float: left}`.So I just divided them into half and half. The reuslt is shown below.
 
 ![](https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/blob/master/pics/side-by-side%20table%20and%20plot.png)
 

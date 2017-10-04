@@ -2,7 +2,7 @@
 Jiahui Tang  
 2017/9/30  
 
-## But I want do more!
+## But I want to do more!
 
 + Layout stretch goal: get table and figure side-by-side. [This gist](https://gist.github.com/jennybc/e9e9aba6ba18c72cec26) might get you started.
 *Applying this layout stretch to task03.*
@@ -41,6 +41,6 @@ gtbl <- tbl_df(gapminder)
  2002       65.69492          67.83904                75.04541
  2007       67.00742          68.91909                75.96507
 
-![](hw03-Tang-Jiahui-I_want_do_more_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+![](hw03-Tang-Jiahui-I_want_to_do_more_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
 </div>
 <div class="clearer"></div>

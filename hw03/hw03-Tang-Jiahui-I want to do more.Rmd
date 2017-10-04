@@ -8,7 +8,7 @@ output:
   pdf_document: default
 ---
 
-## But I want do more!
+## But I want to do more!
 
 + Layout stretch goal: get table and figure side-by-side. [This gist](https://gist.github.com/jennybc/e9e9aba6ba18c72cec26) might get you started.
 *Applying this layout stretch to task03.*
