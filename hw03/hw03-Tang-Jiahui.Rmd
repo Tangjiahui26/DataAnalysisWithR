@@ -2,13 +2,16 @@
 title: "hw03-Tang-Jiahui"
 author: "Jiahui Tang"
 date: "2017/9/30"
-output: github_document
+output:
+  html_document:
+    keep_md: yes
+  pdf_document: default
 ---
 
 ```{r}
 suppressPackageStartupMessages(library(tidyverse))  # The tidyverse contains ggplot2!
 suppressPackageStartupMessages(library(gapminder))
-knitr::opts_chunk$set(fig.width=15, fig.height=10)
+knitr::opts_chunk$set(fig.width=13, fig.height=10)
 ```
 
 ## Task1: Get the maximum and minimum of GDP per capita for all continents.
@@ -211,4 +214,40 @@ P11 <- ggplot(T8, aes(x = Gdp_z)) +
 P11
 ```
 
+## But I want do more!
 
++ Layout stretch goal: get table and figure side-by-side. [This gist](https://gist.github.com/jennybc/e9e9aba6ba18c72cec26) might get you started.*Applying this layout stretch to task03. You can find the result on hw03-Tang-Jiahui.html*
+
+```{r}
+library(ggplot2)
+suppressMessages(library(dplyr))
+library("gapminder")
+gtbl <- tbl_df(gapminder)
+```
+<style type="text/css">
+.twoC {width: 100%}
+.clearer {clear: both}
+.twoC .table {max-width: 50%; float: left}
+.twoC img {max-width: 50%; float: right}
+</style>
+
+<div class="twoC">
+```{r results = 'asis', echo=FALSE}
+tbl1 <- gapminder %>% 
+  group_by(year) %>% 
+  summarise(mean_LifeExp = mean(lifeExp), 
+            weighted_by_pop = weighted.mean(lifeExp, pop),
+            weighted_by_gdpPercap = weighted.mean(lifeExp, gdpPercap))
+knitr::kable(tbl1)
+```
+
+```{r echo=FALSE}
+P12 <- ggplot(T3, aes(x = year, y = LifeExp)) +
+  geom_line(aes(y = mean_LifeExp, color = "mean_LifeExp")) +
+  geom_line(aes(y = weighted_by_pop, color = "weighted_by_pop")) +
+  geom_line(aes(y = weighted_by_gdpPercap, color = "weighted_by_gdpPercap")) +
+  labs(title = "Means of Life Expectancy for different years")
+P12
+```
+</div>
+<div class="clearer"></div>

@@ -26,7 +26,7 @@ Make up your own! Between the dplyr coverage in class and the list above, I thin
 
 ***But I want to do more!***
 
-1. Layout stretch goal: get table and figure side-by-side. [This gist](https://gist.github.com/jennybc/e9e9aba6ba18c72cec26) might get you started.
+1. Layout stretch goal: get table and figure side-by-side. [This gist](https://gist.github.com/jennybc/e9e9aba6ba18c72cec26) might get you started.:white_check_mark:
 
 2. Table stretch goal: there are some really nice fancy table helper packages. [This tweet from @polesasunder](https://twitter.com/polesasunder/status/464132152347475968) will point you toward some R packages you may want to check out (pander, xtable, stargazer).
 
@@ -41,6 +41,8 @@ Make up your own! Between the dplyr coverage in class and the list above, I thin
 4. From Task2 and task4, we can easily find that sometimes figures are more intuitive than tables and allow us to find some subtle changes.
 
 5. For task6, I found it was hard to add labels for density figures, maybe I should adjust the position, but I do not know how to do this, So I just print some countries on the figures.  
+
+6. For side-by-side plot and table(`I want do more`), I cannot adjust the size of table through using `.twoC .table {max-width: 10%; float: left}`.So I just divided them into half and half. The reuslt can be seen on hw03-Tang-Jiahui.html. 
 
 ## Links
 [Highlight minimum and maximum points in faceted ggplot2 graph in R](https://stackoverflow.com/questions/29375169/highlight-minimum-and-maximum-points-in-faceted-ggplot2-graph-in-r)
