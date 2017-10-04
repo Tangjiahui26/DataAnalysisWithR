@@ -42,7 +42,9 @@ Make up your own! Between the dplyr coverage in class and the list above, I thin
 
 5. For task6, I found it was hard to add labels for density figures, maybe I should adjust the position, but I do not know how to do this, So I just print some countries on the figures.  
 
-6. For side-by-side plot and table(`I want do more`), I cannot adjust the size of table through using `.twoC .table {max-width: 10%; float: left}`.So I just divided them into half and half. The reuslt can be seen on hw03-Tang-Jiahui.html. 
+6. For side-by-side plot and table(`I want do more`), I cannot adjust the size of table through using `.twoC .table {max-width: 10%; float: left}`.So I just divided them into half and half. The reuslt is shown below.
+
+![](https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/blob/master/pics/side-by-side%20table%20and%20plot.png)
 
 ## Links
 [Highlight minimum and maximum points in faceted ggplot2 graph in R](https://stackoverflow.com/questions/29375169/highlight-minimum-and-maximum-points-in-faceted-ggplot2-graph-in-r)
