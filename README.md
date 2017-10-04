@@ -1,4 +1,4 @@
-# STAT545-hw01-Jiahui-Tang
+# STAT545-hw-Jiahui-Tang
 
 Hi, Everyone! Welcome to this repo for STAT545 and feel free to look~
 
