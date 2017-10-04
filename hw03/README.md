@@ -32,7 +32,7 @@ Make up your own! Between the dplyr coverage in class and the list above, I thin
 
 ## Report My Process
 
-+ ***Homework03 is divided into two part: `Task1-5, task6` and `I want do more`part. Because they geneate different kind of files(.md and .html), so I put them into two .rmd files: `hw03-Tang-Jiahui.rmd` and `hw03-Tang-Jiahui-I want do more.rmd`.***
++ ***Homework03 is divided into two parts: `Task1-5, task6` and `I want do more`. Because they generate different kind of files(.md and .html), so I put them into two .rmd files: `hw03-Tang-Jiahui.rmd` and `hw03-Tang-Jiahui-I want do more.rmd`.***
 
 1. Homework03 gave us opportunity to manipulate and explore data in different way, and we can also find our own data and analyze using figures and tables. The whole process was very interesting and I learned a lot.
 
