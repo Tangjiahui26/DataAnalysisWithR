@@ -1,0 +1,11 @@
+---
+title: "hw04-Tang-Jiahui"
+author: "Jiahui Tang"
+date: "2017/10/5"
+output: github_document
+---
+
+```{r}
+suppressPackageStartupMessages(library(tidyverse))  # The tidyverse contains ggplot2!
+suppressPackageStartupMessages(library(gapminder))
+```
