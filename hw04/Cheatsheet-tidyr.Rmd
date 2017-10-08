@@ -21,6 +21,10 @@ output: html_document
 #use mtcars in datasets to show deoms
 library(tidyr)
 library(dplyr)
+<<<<<<< HEAD
+=======
+opts_chunk$set(comment=NA, tidy=FALSE, message = FALSE, warnings = FALSE)
+>>>>>>> 53d41757b083c74c811c5657fa3625b82530afd8
 mtcars$car <- rownames(mtcars)
 mtcars <- mtcars[, c(12, 1:11)]
 head(mtcars)
@@ -95,11 +99,16 @@ data1
 ## Links
 
 [gather From tidyr v0.7.1 by Hadley Wickham](https://www.rdocumentation.org/packages/tidyr/versions/0.7.1/topics/gather)
+<<<<<<< HEAD
 
 [spread From tidyr v0.7.1 by Hadley Wickham](https://www.rdocumentation.org/packages/tidyr/versions/0.7.1/topics/spread)
 
 [unite From tidyr v0.7.1 by Hadley Wickham](https://www.rdocumentation.org/packages/tidyr/versions/0.7.1/topics/unite)
 
+=======
+[spread From tidyr v0.7.1 by Hadley Wickham](https://www.rdocumentation.org/packages/tidyr/versions/0.7.1/topics/spread)
+[unite From tidyr v0.7.1 by Hadley Wickham](https://www.rdocumentation.org/packages/tidyr/versions/0.7.1/topics/unite)
+>>>>>>> 53d41757b083c74c811c5657fa3625b82530afd8
 [separate From tidyr v0.7.1 by Hadley Wickham](https://www.rdocumentation.org/packages/tidyr/versions/0.7.1/topics/separate)
 [R-tidyr](http://www.cnblogs.com/nxld/p/6060533.html)
 
