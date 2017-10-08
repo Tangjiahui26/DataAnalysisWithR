@@ -1,0 +1,105 @@
+---
+title: "Cheatsheet-tidyr"
+author: "Jiahui Tang"
+date: "2017/10/7"
+output: html_document
+---
+# CheatSheet-`tidyr`
+
+*This is a cheatsheet to remind me of some tidyr functions, and it will help me with the later homeworks in STAT545 class.*
+
+## 4 Main Functions
+
+| tidyr Function    | Special Powers
+|-------------------|----------------------------
+|  `gather`         | long format\*
+|  `spread`         | wide format\*
+|  `unite`          | Unite multiple columns into one.
+|  `separate`       | Separate one column into multiple columns.
+
+```{r}
+#use mtcars in datasets to show deoms
+library(tidyr)
+library(dplyr)
+mtcars$car <- rownames(mtcars)
+mtcars <- mtcars[, c(12, 1:11)]
+head(mtcars)
+```
+
+## Demos
+
+```R
+gather(data, key, value, …, na.rm = FALSE, convert = FALSE)
+spread(data, key, value, fill = NA, convert = FALSE, drop = TRUE)
+unite(data, col, …, sep = “_”, remove = TRUE
+separate(data, col, into, sep = “[^[:alnum:]]+”, remove = TRUE, 
+convert = FALSE, extra = “warn”, fill = “warn”, …)
+```
+### ***gather()***
+
+```{r}
+#the columns except car are gathered into two columns, named attribute and value respectively
+mtcarsNew <- mtcars %>% gather(attribute, value, -car)
+head(mtcarsNew)
+tail(mtcarsNew)
+```
+
+```{r}
+#Gather all columns between map and gear, while keeping the carb and car columns unchanged
+mtcarsNew <- mtcars %>% gather(attribute, value, mpg:gear)
+head(mtcarsNew)
+#Continuous
+mtcarsNew <- mtcars %>% gather(mpg:drat, key = "attribute", value ="value", -car)
+unique(mtcarsNew$attribute)
+head(mtcarsNew)
+#Discontinuous
+mtcarsNew <- mtcars %>% gather(`gear`,`carb`,key = "attribute", value = "value", -car)
+head(mtcarsNew)
+unique(mtcarsNew$attribute)
+```
+
+### ***spread()***
+
+```{r}
+#Separate one column into multiple columns.
+mtcarsSpread <- mtcarsNew %>% spread(attribute, value)
+head(mtcarsSpread)
+```
+
+### ***unite()***
+
+```{r}
+#First make a data frame
+set.seed(1)
+date <- as.Date('2017-10-07') + 0:14
+hour <- sample(1:24, 15)
+min <- sample(1:60, 15)
+second <- sample(1:60, 15)
+event <- sample(letters, 15)
+data <- data.frame(date, hour, min, second, event)
+data
+```
+
+```{r}
+dataNew <- data %>%unite(datehour, date, hour, sep = ' ') %>%unite(datetime, datehour, min, second, sep = ':')
+dataNew
+```
+
+### ***separate()***
+
+```{r}
+data1 <- dataNew %>%separate(datetime, c('date', 'time'), sep = ' ') %>%separate(time, c('hour', 'min', 'second'), sep = ':')
+data1
+```
+
+## Links
+
+[gather From tidyr v0.7.1 by Hadley Wickham](https://www.rdocumentation.org/packages/tidyr/versions/0.7.1/topics/gather)
+
+[spread From tidyr v0.7.1 by Hadley Wickham](https://www.rdocumentation.org/packages/tidyr/versions/0.7.1/topics/spread)
+
+[unite From tidyr v0.7.1 by Hadley Wickham](https://www.rdocumentation.org/packages/tidyr/versions/0.7.1/topics/unite)
+
+[separate From tidyr v0.7.1 by Hadley Wickham](https://www.rdocumentation.org/packages/tidyr/versions/0.7.1/topics/separate)
+[R-tidyr](http://www.cnblogs.com/nxld/p/6060533.html)
+
