@@ -10,8 +10,13 @@ library(tidyverse)
 library(tidyr)
 library(gapminder)
 library(knitr)
+library(countrycode) # To get the countrycode
+library(easyGgplot2) # To put multiple graphs on the same page using ggplot2
+#library(geonames)
+library(dplyr)
 suppressPackageStartupMessages(library(tidyverse))
 suppressPackageStartupMessages(library(gapminder))
+knitr::opts_chunk$set(fig.width=13, fig.height=10)
 ```
 
 ## General data reshaping and relationship to aggregation
@@ -19,6 +24,7 @@ suppressPackageStartupMessages(library(gapminder))
 ***Activity #1***
 
   + Make you own [cheatsheet for tidyr](https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/blob/master/hw04/Cheatsheet-tidyr.md).
+    - I gave demos for 4 main tidyr functions on the cheatsheet, and used `mtcars` dataset that is a typical wide format data_frame.
   
 ***Activity #2***
 
@@ -26,58 +32,170 @@ suppressPackageStartupMessages(library(gapminder))
     - Use knitr::kable() to make this table look pretty in your rendered homework.
     - Take advantage of this new data shape to scatterplot life expectancy for one country against that of another.
 
-*I am here to select five Asian countries: China, Japan, India, Thailand, Singapore*
+*I am here to select five Asian countries: China, Japan, India, Thailand, Singapore.*
 ```{r}
 A1 <- gapminder %>% 
   filter(country %in% c("China", "Japan", "India", "Thailand", "Singapore")) %>% 
   select(country, year, lifeExp) %>% 
-  spread(country, lifeExp)
+  spread(key = country, value = lifeExp)
 
 knitr::kable(A1, caption = "Life Expectancy by Countries")
 ```
+
+*I used `ggplot2` to make plots for one country(China) against that of another. And use ggplot2.multiplot to put the four graphs on the same page.*
+
 ```{r}
-A1 %>% 
+Plot1 <- A1 %>% 
   ggplot(aes(x = China, y = Japan)) +
   geom_point(size = 4, alpha = 0.8, aes(color = factor(year))) +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
   theme_bw() +
   theme(axis.title.x = element_text(size=15),
         axis.title.y = element_text(size=15),
         plot.title = element_text(hjust = 0.5))+
-  labs(title="Life Expectancy of China and Japan")+
-  scale_colour_discrete("year")
+  labs(title="Life Expectancy of China vs Japan")+
+  scale_colour_discrete("year") +
+  scale_x_continuous(breaks = c(40, 50, 60, 70, 80)) +
+  scale_y_continuous(breaks = c(40, 50, 60, 70, 80))
+
+Plot2 <- A1 %>% 
+  ggplot(aes(x = China, y = India)) +
+  geom_point(size = 4, alpha = 0.8, aes(color = factor(year))) +
+  geom_smooth(method = "lm", se = FALSE, color = "blue") +
+  theme_bw() +
+  theme(axis.title.x = element_text(size=15),
+        axis.title.y = element_text(size=15),
+        plot.title = element_text(hjust = 0.5))+
+  labs(title="Life Expectancy of China vs Inida")+
+  scale_colour_discrete("year") +
+  scale_x_continuous(breaks = c(40, 50, 60, 70, 80)) +
+  scale_y_continuous(breaks = c(40, 50, 60, 70, 80))
+
+Plot3 <- A1 %>% 
+  ggplot(aes(x = China, y = Thailand)) +
+  geom_point(size = 4, alpha = 0.8, aes(color = factor(year))) +
+  geom_smooth(method = "lm", se = FALSE, color = "yellow") +
+  theme_bw() +
+  theme(axis.title.x = element_text(size=15),
+        axis.title.y = element_text(size=15),
+        plot.title = element_text(hjust = 0.5))+
+  labs(title="Life Expectancy of China vs Thailand")+
+  scale_colour_discrete("year") +
+  scale_x_continuous(breaks = c(40, 50, 60, 70, 80)) +
+  scale_y_continuous(breaks = c(40, 50, 60, 70, 80))
+
+Plot4 <- A1 %>% 
+  ggplot(aes(x = China, y = Singapore)) +
+  geom_point(size = 4, alpha = 0.8, aes(color = factor(year))) +
+  geom_smooth(method = "lm", se = FALSE, color = "green") +
+  theme_bw() +
+  theme(axis.title.x = element_text(size=15),
+        axis.title.y = element_text(size=15),
+        plot.title = element_text(hjust = 0.5))+
+  labs(title="Life Expectancy of China vs Singapore")+
+  scale_colour_discrete("year") +
+  scale_x_continuous(breaks = c(40, 50, 60, 70, 80)) +
+  scale_y_continuous(breaks = c(40, 50, 60, 70, 80))
+
+# Multiple graphs on the same page
+ggplot2.multiplot(Plot1,Plot2,Plot3,Plot4, cols=2)
 ```
 
-***Activity #3***
+*We can easily compare the life expectancy of China against that of another from the plots above.*
 
-  + Compute some measure of life expectancy (mean? median? min? max?) for all possible combinations of continent and year. Reshape that to have one row per year and one variable for each continent. Or the other way around: one row per continent and one variable per year.
-    
-```{r}
-
-```
-
-***Activity #4***
-
-  + In Window functions, we formed a tibble with 24 rows: 2 per year, giving the country with both the lowest and highest life expectancy (in Asia). Take that table (or a similar one for all continents) and reshape it so you have one row per year or per year * continent combination.
-  
-***Activity #5***
-
-  + Previous TA Andrew MacDonald has a nice data manipulation sampler. Make up a similar set of exercises for yourself, in the abstract or (even better) using Gapminder or other data, and solve them.
-  
 ## Join, merge, look up
 
 ***Activity #1***
 
   + Create a second data frame, complementary to Gapminder. Join this with (part of) Gapminder using a dplyr join function and make some observations about the process and result. Explore the different types of joins. 
-  
-***Activity #2***
 
-  + reate your own cheatsheet patterned after mine but focused on something you care about more than comics! 
+*I used countrycode() to get the countrycode of Asian countries, selected some variables for a new data_frame called `first_gapminder`. Obviously, the new data_frame has 5 columns represent continent, country, lifeExp, year and countryCode respectively.*
+
+```{r}
+gapminder_code <- gapminder %>%
+  mutate(countryCode = countrycode(country, "country.name", "iso2c"))
+  knitr::kable(head(gapminder_code))
   
-***Activity #3***
-  
-  + his is really an optional add-on to either of the previous activities.
-  + Explore the base function merge(), which also does joins. Compare and contrast with dplyr joins.
-  + Explore the base function match(), which is related to joins and merges, but is really more of a “table lookup”. Compare and contrast with a true join/merge.
-  
+first_gapminder <- gapminder_code %>% 
+  select(continent, country, lifeExp, year, countryCode) %>% 
+  filter(continent == "Asia" & year == 2007)
+
+knitr::kable(first_gapminder)
+```
+
+*We should create a second_gapminder data_frame to realize join functions, so I picked 8 countries with their continent, language and national flower, etc. *
+
+```{r}
+country <- c("China", "Japan", "India", "Thailand", "Singapore", "Canada", "Germany", "Netherlands")
+continent <- c("Asia","Asia","Asia","Asia","Asia","Americas", "Europe","Europe")
+Languages <- c("Mandarin","Japanese","Hindi/English","Dai","English", "English", "German", "Dutch")
+NATO <- c(0, 0, 0, 0, 0, 1, 1, 1)
+National_flower <- c("Peony", "Cherry Blossom", "Nelumbo nucifera", "Cassia fistula", "Vanda 'Miss Joaquim'", "Sugar Maple", "Blue Bottle", "Tulipa")
+
+second_gapminder <- data.frame(country, continent, Languages, NATO, National_flower)
+knitr::kable(second_gapminder)
+```
+
+### *left_join*
+
+*We can find that left_join1 will return all rows from second_gapminder and all rowa from second_gapminder and first_gapminder. Left_join2 is the opposite of left_join1.*
+
+```{r}
+left_join1 <- left_join(second_gapminder, first_gapminder, by=c("country", "continent"))
+knitr::kable(left_join1)
+```
+
+```{r}
+left_join2 <- left_join(first_gapminder, second_gapminder)
+knitr::kable(left_join2)
+```
+
+### *inner_join*
+
+*We can find that inner_join returns all rows from second_gapminder where there are matching values in first_gapminder, and all columns from both.*
+
+```{r}
+inner_join1 <- inner_join(second_gapminder, first_gapminder)
+knitr::kable(inner_join1)
+```
+
+### *semi_join*
+
+*We can find that it will return all rows from second_gapminder where there are matching values in first_gapminder, keeping just columns from second_gapminder. Semi_join2 is the opposite of semi_join1.*
+
+```{r}
+semi_join1 <- semi_join(second_gapminder, first_gapminder)
+knitr::kable(semi_join1)
+```
+
+```{r}
+semi_join2 <- semi_join(first_gapminder, second_gapminder)
+knitr::kable(semi_join2)
+```
+
+### *anti_join*
+
+*Return all rows from second_gapminder where there are not matching values in first_gapminder, keeping just columns from second_gapminder. *
+
+```{r}
+anti_join1 <- anti_join(second_gapminder, first_gapminder)
+knitr::kable(anti_join1)
+```
+
+*Return all rows from first_gapminder where there are not matching values in second_gapminder, keeping just columns from first_gapminder. *
+
+```{r}
+anti_join2 <- anti_join(first_gapminder, second_gapminder)
+knitr::kable(anti_join2)
+```
+
+*full_join*
+
++ Return all rows and all columns from both x and y. Where there are not matching values, returns NA for the one missing. This is a mutating join.
+
+```{r}
+full_join1 <- full_join(second_gapminder, first_gapminder)
+knitr::kable(full_join1)
+```
   
   
