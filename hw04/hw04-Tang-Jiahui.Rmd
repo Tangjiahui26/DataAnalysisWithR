@@ -109,7 +109,7 @@ ggplot2.multiplot(Plot1,Plot2,Plot3,Plot4, cols=2)
 
   + Create a second data frame, complementary to Gapminder. Join this with (part of) Gapminder using a dplyr join function and make some observations about the process and result. Explore the different types of joins. 
 
-*I used countrycode() to get the countrycode of Asian countries, selected some variables for a new data_frame called `first_gapminder`. Obviously, the new data_frame has 5 columns represent continent, country, lifeExp, year and countryCode respectively.*
+ + *I used countrycode() to get the countrycode of Asian countries, selected some variables for a new data_frame called `first_gapminder`. Obviously, the new data_frame has 5 columns represent continent, country, lifeExp, year and countryCode respectively.*
 
 ```{r}
 gapminder_code <- gapminder %>%
@@ -123,7 +123,7 @@ first_gapminder <- gapminder_code %>%
 knitr::kable(first_gapminder)
 ```
 
-*We should create a second_gapminder data_frame to realize join functions, so I picked 8 countries with their continent, language and national flower, etc. *
+ + *We should create a second_gapminder data_frame to realize join functions, so I picked 8 countries with their continent, language and national flower, etc.*
 
 ```{r}
 country <- c("China", "Japan", "India", "Thailand", "Singapore", "Canada", "Germany", "Netherlands")
@@ -138,7 +138,7 @@ knitr::kable(second_gapminder)
 
 ### *left_join*
 
-*We can find that left_join1 will return all rows from second_gapminder and all rowa from second_gapminder and first_gapminder. Left_join2 is the opposite of left_join1.*
+ + *We can find that left_join1 will return all rows from second_gapminder and all rowa from second_gapminder and first_gapminder. Left_join2 is the opposite of left_join1.*
 
 ```{r}
 left_join1 <- left_join(second_gapminder, first_gapminder, by=c("country", "continent"))
@@ -152,7 +152,7 @@ knitr::kable(left_join2)
 
 ### *inner_join*
 
-*We can find that inner_join returns all rows from second_gapminder where there are matching values in first_gapminder, and all columns from both.*
+ + *We can find that inner_join returns all rows from second_gapminder where there are matching values in first_gapminder, and all columns from both.*
 
 ```{r}
 inner_join1 <- inner_join(second_gapminder, first_gapminder)
@@ -161,7 +161,7 @@ knitr::kable(inner_join1)
 
 ### *semi_join*
 
-*We can find that it will return all rows from second_gapminder where there are matching values in first_gapminder, keeping just columns from second_gapminder. Semi_join2 is the opposite of semi_join1.*
+ + *We can find that it will return all rows from second_gapminder where there are matching values in first_gapminder, keeping just columns from second_gapminder. Semi_join2 is the opposite of semi_join1.*
 
 ```{r}
 semi_join1 <- semi_join(second_gapminder, first_gapminder)
@@ -175,23 +175,23 @@ knitr::kable(semi_join2)
 
 ### *anti_join*
 
-*Return all rows from second_gapminder where there are not matching values in first_gapminder, keeping just columns from second_gapminder. *
+ + *Return all rows from second_gapminder where there are not matching values in first_gapminder, keeping just columns from second_gapminder.*
 
 ```{r}
 anti_join1 <- anti_join(second_gapminder, first_gapminder)
 knitr::kable(anti_join1)
 ```
 
-*Return all rows from first_gapminder where there are not matching values in second_gapminder, keeping just columns from first_gapminder. *
+ + *Return all rows from first_gapminder where there are not matching values in second_gapminder, keeping just columns from first_gapminder.*
 
 ```{r}
 anti_join2 <- anti_join(first_gapminder, second_gapminder)
 knitr::kable(anti_join2)
 ```
 
-*full_join*
+### *full_join*
 
-+ Return all rows and all columns from both x and y. Where there are not matching values, returns NA for the one missing. This is a mutating join.
+ + *Return all rows and all columns from both second_gapminder and first_gapminder.*
 
 ```{r}
 full_join1 <- full_join(second_gapminder, first_gapminder)
