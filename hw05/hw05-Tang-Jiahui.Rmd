@@ -1,0 +1,7 @@
+---
+title: "hw05-Tang-Jiahui"
+author: "Jiahui Tang"
+date: "2017/10/12"
+output: github_document
+---
+
