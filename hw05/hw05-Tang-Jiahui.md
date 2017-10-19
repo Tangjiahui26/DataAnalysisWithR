@@ -8,7 +8,7 @@ suppressPackageStartupMessages(library(tidyverse))
 suppressPackageStartupMessages(library(gapminder))
 suppressPackageStartupMessages(library(singer))
 suppressPackageStartupMessages(library(forcats))
-knitr::opts_chunk$set(fig.width=13, fig.height=10)
+knitr::opts_chunk$set(fig.width=10, fig.height=5)
 ```
 
 Factor Management
@@ -143,14 +143,10 @@ knitr::kable(mytable)
 
 *Use the forcats package to change the order of the factor levels, based on a principled summary of one of the quantitative variables. Consider experimenting with a summary statistic beyond the most basic choice of the median.*
 
-``` r
-fct_reorder(singer_year_dropped$year, singer_year_dropped$artist_familiarity,desc = TRUE) %>% 
-  levels() %>%  head()
-```
-
-    ## [1] "1945" "1947" "1922" "1940" "1929" "1937"
+-   In this part, fct\_reorder() was applied to the factor levels, and we can order`artist_name`and`year` by another quantitative variable`artist_familiarity`.
 
 ``` r
+##  order according to max artist_familiarity
 fct_reorder(singer_year_dropped$artist_name, singer_year_dropped$artist_familiarity, max) %>% 
   levels() %>%  head()
 ```
@@ -162,21 +158,143 @@ fct_reorder(singer_year_dropped$artist_name, singer_year_dropped$artist_familiar
     ## [5] "Ludovico Einaudi & Ballaké Sissoko" 
     ## [6] "Fight K5"
 
+``` r
+## backwards
+fct_reorder(singer_year_dropped$year, singer_year_dropped$artist_familiarity,desc = TRUE) %>% 
+  levels() %>%  head()
+```
+
+    ## [1] "1945" "1947" "1922" "1940" "1929" "1937"
+
 ### Common part
 
 *Characterize the (derived) data before and after your factor re-leveling.*
 
+-   Frist I would simlpy our dataset using filter(), and use `arrange` to compare artist\_name based on `artist_familiarity`.
+
+``` r
+singer_factor %>% 
+  arrange(artist_familiarity) %>% 
+  filter(artist_familiarity >= 0.93) %>% 
+  ggplot(aes(x = artist_familiarity, y = artist_name)) +
+  geom_point(shape = 1,aes(color = artist_name)) +
+  labs(title="Compare artist_name based on artist_familiarity using arrange()")+
+  theme_bw()+
+  theme( axis.title = element_text(size = 10),
+         plot.title = element_text(size = 10, face = "bold", hjust = 0.5))
+```
+
+![](hw05-Tang-Jiahui_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-8-1.png)
+
+-   Then I use `fct_reorder()` to compare artist\_name based on `artist_familiarity`.
+
+``` r
+singer_factor %>% 
+  filter(artist_familiarity >= 0.93) %>% 
+  ggplot(aes(x = artist_familiarity, y = fct_reorder(artist_name, artist_familiarity, desc = TRUE))) +
+  geom_point(shape = 1,aes(color = artist_name)) +
+  labs(title="Compare artist_name based on artist_familiarity by fct_reorder()",
+       y = "artist_name")+
+  theme_bw()+
+  theme( axis.title = element_text(size = 10),
+         plot.title = element_text(size = 10, face = "bold", hjust = 0.5))
+```
+
+![](hw05-Tang-Jiahui_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-9-1.png)
+
+-   Finally I used factor reordering coupled with arrange() to make the plot.
+
+``` r
+singer_factor %>% 
+  arrange(artist_familiarity) %>% 
+  filter(artist_familiarity >= 0.93) %>% 
+  ggplot(aes(x = artist_familiarity, y = fct_reorder(artist_name, artist_familiarity, desc = TRUE))) +
+  geom_point(shape = 1,aes(color = artist_name)) +
+  labs(title="Factor reordering coupled with arrange()",
+       y = "artist_name")+
+  theme_bw()+
+  theme( axis.title = element_text(size = 10),
+         plot.title = element_text(size = 10, face = "bold", hjust = 0.5))
+```
+
+![](hw05-Tang-Jiahui_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-10-1.png)
+
+-   As we can see from above figures, arrange() did not change the order, while reordering or fct\_reorder coupled with arrange() will change the order of factors.
+
 File I/O
 --------
+
+*Experiment with one or more of`write_csv()/read_csv()`(and/or`TSV`friends),`saveRDS()/readRDS()`,`dput()/dget()`. Create something new, probably by filtering or grouped-summarization of Singer or Gapminder.*
+
+``` r
+singer_new_for_IO <- singer_year_dropped %>% 
+  mutate(artist_name = fct_reorder(artist_name, artist_familiarity, max, desc = TRUE)) %>% 
+  group_by(artist_name) %>% 
+  filter(artist_familiarity >= 0.85) %>% 
+  summarise(max_artist_familiarity = max(artist_familiarity))
+glimpse(singer_new_for_IO)
+```
+
+    ## Observations: 121
+    ## Variables: 2
+    ## $ artist_name            <fctr> Coheed and Cambria, Hot Chip, Pussycat...
+    ## $ max_artist_familiarity <dbl> 0.8783131, 0.8526389, 0.8544883, 0.9339...
+
+-   First I would use `write_csv()/read_csv()` to write to file and read back in.
+
+``` r
+write_csv(singer_new_for_IO, "singer_new_for_IO.csv")
+glimpse(read_csv("singer_new_for_IO.csv"))
+```
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   artist_name = col_character(),
+    ##   max_artist_familiarity = col_double()
+    ## )
+
+    ## Observations: 121
+    ## Variables: 2
+    ## $ artist_name            <chr> "Coheed and Cambria", "Hot Chip", "Puss...
+    ## $ max_artist_familiarity <dbl> 0.8783131, 0.8526389, 0.8544883, 0.9339...
+
+-   Then I employed`saveRDS()/readRDS()` to write to file and read back in.
+
+``` r
+saveRDS(singer_new_for_IO, "singer_new_for_IO.rds")
+glimpse(readRDS("singer_new_for_IO.rds"))
+```
+
+    ## Observations: 121
+    ## Variables: 2
+    ## $ artist_name            <fctr> Coheed and Cambria, Hot Chip, Pussycat...
+    ## $ max_artist_familiarity <dbl> 0.8783131, 0.8526389, 0.8544883, 0.9339...
+
+-   I employed`dput()/dget()` to write to file and read back in.
+
+``` r
+dput(singer_new_for_IO, "singer_new_for_IO.txt")
+glimpse(dget("singer_new_for_IO.txt"))
+```
+
+    ## Observations: 121
+    ## Variables: 2
+    ## $ artist_name            <fctr> Coheed and Cambria, Hot Chip, Pussycat...
+    ## $ max_artist_familiarity <dbl> 0.8783131, 0.8526389, 0.8544883, 0.9339...
+
+*According to the results, we find that there is no change if using `saveRDS()/readRDS()` or `dput()/dget()`, but the factor varible `artist_name` will change into charactor if we are using`write_csv()/read_csv()`.*
 
 Visualization design
 --------------------
 
+*Remake at least one figure or create a new one, in light of something you learned in the recent class meetings about visualization design and color. Maybe juxtapose your first attempt and what you obtained after some time spent working on it. Reflect on the differences.*
+
 Writing figures to file
 -----------------------
 
-Clean up your repo!
--------------------
+*Use`ggsave()`to explicitly save a plot to file. Then use`![Alt text](/path/to/img.png)`to load and embed it in your report.*
 
 But I want to do more!
 ----------------------
+
+*Make a deeper exploration of the forcats packages, i.e. try more of the factor level reordering functions.*
