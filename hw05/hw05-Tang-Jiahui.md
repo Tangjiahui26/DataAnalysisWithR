@@ -382,7 +382,7 @@ knitr::kable(head(singer_more_forcats))
 | Freedom In The Groove                     | Berkeley, CA    | USA           |
 | ! Ich Kann                                | Berlin, Germany | Germany       |
 
--   We can also use `separate()` function in `tidyr`, which I have realized a demo in this [cheetsheet](https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/blob/master/hw04/Cheatsheet-tidyr.md)
+-   We can also use `separate()` function in `tidyr`, which I have realized a demo in this [cheatsheet](https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/blob/master/hw04/Cheatsheet-tidyr.md)
 
 ``` r
 singer_more_tidyr <- singer_factor%>%
