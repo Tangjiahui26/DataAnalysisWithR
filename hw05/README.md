@@ -45,6 +45,21 @@ Make a deeper exploration of the forcats packages, i.e. try more of the factor l
 
 ## Report My Process
 
+1. When I tried to transform`year<int>`and`city<chr>` in `Factor Management` part, I came across some ERRORS. Since year is numerical, it did not work if I use`as_factor()`directly, I changed it from integer into character first. As for`city`, which is a character variable with NA, we should add a value for NA like `city = ifelse(is.na(city), "NA", city)`.
+
+2. In `Visualization design`part, I actually want to draw more than one lines with different colors(alpha) in plot1, however it did not work if running codes below. I may have done something wrong, and I hope I can find a better way later.
+
+```R
+  geom_line(aes(group = artist_name,
+                color = artist_name == c("Mariah Carey","Akon","Britney Spears"), 
+                alpha = artist_name == c("Mariah Carey","Akon","Britney Spears")))+
+  scale_colour_manual("", 
+                        labels=c("Other Singers", "Mariah Carey","Akon","Britney Spears"),
+                        values=c("black", "blue","yellow","red"))
+                        
+```
+
+3. I believe the easist way to load and embed plots in your report is using code like `![Alt text](./Artists with high hotness after 1970.png)`.By doing so, the pictures can be displayed correctly on the GitHub.
 
 ## Links
 

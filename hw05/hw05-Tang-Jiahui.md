@@ -315,15 +315,23 @@ plot1
 
 ![](hw05-Tang-Jiahui_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-15-1.png)
 
-1.  
+1.  I tried to make a graph about artists with high hotness after 1970, and distinguished by different size and color.
 
 ``` r
-plot2 <- singer_year_dropped %>% 
-  filter(artist_familiarity >= 0.8, year >= 2000) %>% 
-  ggplot()
+plot2 <- singer_locations %>% 
+  filter(artist_hotttnesss >= 0.8, year >= 1970) %>% 
+  ggplot(aes(x = artist_name, y = artist_familiarity, size=artist_hotttnesss, color=year)) +
+  geom_point(alpha = 0.6) +
+  scale_colour_distiller(palette="Dark2") +
+  theme_bw() +
+  labs(title = "Artists with high hotness after 1970") +
+  theme(axis.text.x = element_text(angle = 90),
+        plot.title = element_text(hjust = 0.5),
+        legend.position = "bottom")
+plot2
 ```
 
-    ## Warning in Ops.factor(year, 2000): '>=' not meaningful for factors
+![](hw05-Tang-Jiahui_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-16-1.png)
 
 Writing figures to file
 -----------------------
@@ -340,7 +348,57 @@ ggsave("Artist_familiarity changes by time.png",
 
 ![Alt text](./Artist_familiarity%20changes%20by%20time.png)
 
+``` r
+ggsave("Artists with high hotness after 1970.png", 
+       plot = plot2, device = "png", width = 10, 
+       height = 7,dpi = 500)
+```
+
+![Alt text](./Artists%20with%20high%20hotness%20after%201970.png)
+
 But I want to do more!
 ----------------------
 
 *Make a deeper exploration of the forcats packages, i.e. try more of the factor level reordering functions.*
+
+-   We can use `fct_recode()` to map the existing city factor levels to the new(country).
+
+``` r
+singer_more_forcats <- singer_factor %>% 
+  filter(city %in% c("Berkeley, CA", "Berlin, Germany", "New York, NY")) %>% 
+  droplevels() %>% 
+  mutate(city_Country = fct_recode(city, "USA" = "Berkeley, CA", "Germany" = "Berlin, Germany","USA" = "New York, NY")) %>% 
+  select(release, city, city_Country)
+  
+knitr::kable(head(singer_more_forcats))
+```
+
+| release                                   | city            | city\_Country |
+|:------------------------------------------|:----------------|:--------------|
+| Imprompture                               | New York, NY    | USA           |
+| Poetica                                   | New York, NY    | USA           |
+| The Old Dope Peddler                      | New York, NY    | USA           |
+| Spy Vs. Spy: The Music Of Ornette Coleman | New York, NY    | USA           |
+| Freedom In The Groove                     | Berkeley, CA    | USA           |
+| ! Ich Kann                                | Berlin, Germany | Germany       |
+
+-   We can also use `separate()` function in `tidyr`, which I have realized a demo in this [cheetsheet](https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/blob/master/hw04/Cheatsheet-tidyr.md)
+
+``` r
+singer_more_tidyr <- singer_factor%>%
+  filter(city %in% c("Berkeley, CA", "Berlin, Germany", "New York, NY")) %>% 
+  droplevels() %>% 
+  select(release, city) %>% 
+  separate(city,c("city", "state/country"), sep = ",") 
+  
+knitr::kable(head(singer_more_tidyr))
+```
+
+| release                                   | city     | state/country |
+|:------------------------------------------|:---------|:--------------|
+| Imprompture                               | New York | NY            |
+| Poetica                                   | New York | NY            |
+| The Old Dope Peddler                      | New York | NY            |
+| Spy Vs. Spy: The Music Of Ornette Coleman | New York | NY            |
+| Freedom In The Groove                     | Berkeley | CA            |
+| ! Ich Kann                                | Berlin   | Germany       |

@@ -223,13 +223,20 @@ plot1
 
 ```
 
-2. 
+2. I tried to make a graph about artists with high hotness after 1970, and distinguished by different size and color.
 
 ```{r}
-plot2 <- singer_year_dropped %>% 
-  filter(artist_familiarity >= 0.8, year >= 2000) %>% 
-  ggplot()
-  
+plot2 <- singer_locations %>% 
+  filter(artist_hotttnesss >= 0.8, year >= 1970) %>% 
+  ggplot(aes(x = artist_name, y = artist_familiarity, size=artist_hotttnesss, color=year)) +
+  geom_point(alpha = 0.6) +
+  scale_colour_distiller(palette="Dark2") +
+  theme_bw() +
+  labs(title = "Artists with high hotness after 1970") +
+  theme(axis.text.x = element_text(angle = 90),
+        plot.title = element_text(hjust = 0.5),
+        legend.position = "bottom")
+plot2
 ```
 
 
@@ -247,9 +254,42 @@ ggsave("Artist_familiarity changes by time.png",
 
 ![Alt text](./Artist_familiarity changes by time.png)
 
+```{r}
+ggsave("Artists with high hotness after 1970.png", 
+       plot = plot2, device = "png", width = 10, 
+       height = 7,dpi = 500)
+```
+
+![Alt text](./Artists with high hotness after 1970.png)
+
 ## But I want to do more!
 
 *Make a deeper exploration of the forcats packages, i.e. try more of the factor level reordering functions.*
+
+- We can use `fct_recode()` to map the existing city factor levels to the new(country).
+
+```{r}
+singer_more_forcats <- singer_factor %>% 
+  filter(city %in% c("Berkeley, CA", "Berlin, Germany", "New York, NY")) %>% 
+  droplevels() %>% 
+  mutate(city_Country = fct_recode(city, "USA" = "Berkeley, CA", "Germany" = "Berlin, Germany","USA" = "New York, NY")) %>% 
+  select(release, city, city_Country)
+  
+knitr::kable(head(singer_more_forcats))
+```
+
+- We can also use `separate()` function in `tidyr`, which I have realized a demo in this [cheetsheet](https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/blob/master/hw04/Cheatsheet-tidyr.md)
+
+```{r}
+singer_more_tidyr <- singer_factor%>%
+  filter(city %in% c("Berkeley, CA", "Berlin, Germany", "New York, NY")) %>% 
+  droplevels() %>% 
+  select(release, city) %>% 
+  separate(city,c("city", "state/country"), sep = ",") 
+  
+knitr::kable(head(singer_more_tidyr))
+```
+
 
 
 
