@@ -338,7 +338,7 @@ ggsave("Artist_familiarity changes by time.png",
        height = 7,dpi = 500)
 ```
 
-![Alt text](/Users/tangjiahui/STAT545-hw-Tang-Jiahui/hw05/Artist_familiarity%20changes%20by%20time.png)
+![Alt text](./Artist_familiarity%20changes%20by%20time.png)
 
 But I want to do more!
 ----------------------
