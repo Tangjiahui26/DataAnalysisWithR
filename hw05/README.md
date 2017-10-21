@@ -51,5 +51,9 @@ Make a deeper exploration of the forcats packages, i.e. try more of the factor l
 [as_factor](https://www.rdocumentation.org/packages/haven/versions/1.1.0/topics/as_factor)
 
 [How to convert integer to factor in R?](https://stackoverflow.com/questions/31165015/how-to-convert-integer-to-factor-in-r)
+
 [Be the boss of your factors](http://stat545.com/block029_factors.html)
+
 [All the graph things](http://stat545.com/graph00_index.html)
+
+[scale_manual From ggplot2 v2.2.1](https://www.rdocumentation.org/packages/ggplot2/versions/2.2.1/topics/scale_manual)

@@ -8,6 +8,7 @@ suppressPackageStartupMessages(library(tidyverse))
 suppressPackageStartupMessages(library(gapminder))
 suppressPackageStartupMessages(library(singer))
 suppressPackageStartupMessages(library(forcats))
+suppressPackageStartupMessages(library(RColorBrewer))
 knitr::opts_chunk$set(fig.width=10, fig.height=5)
 ```
 
@@ -226,6 +227,8 @@ File I/O
 
 *Experiment with one or more of`write_csv()/read_csv()`(and/or`TSV`friends),`saveRDS()/readRDS()`,`dput()/dget()`. Create something new, probably by filtering or grouped-summarization of Singer or Gapminder.*
 
+-   The origin dataset is too large to analyze, so I used mutate() to create reordered `artist_name`, and filtered it with artist\_familiarity.
+
 ``` r
 singer_new_for_IO <- singer_year_dropped %>% 
   mutate(artist_name = fct_reorder(artist_name, artist_familiarity, max, desc = TRUE)) %>% 
@@ -273,8 +276,8 @@ glimpse(readRDS("singer_new_for_IO.rds"))
 -   I employed`dput()/dget()` to write to file and read back in.
 
 ``` r
-dput(singer_new_for_IO, "singer_new_for_IO.pdf")
-glimpse(dget("singer_new_for_IO.pdf"))
+dput(singer_new_for_IO, "singer_new_for_IO.txt")
+glimpse(dget("singer_new_for_IO.txt"))
 ```
 
     ## Observations: 121
@@ -282,17 +285,60 @@ glimpse(dget("singer_new_for_IO.pdf"))
     ## $ artist_name            <fctr> Coheed and Cambria, Hot Chip, Pussycat...
     ## $ max_artist_familiarity <dbl> 0.8783131, 0.8526389, 0.8544883, 0.9339...
 
-*According to the results, we find that there is no change if using `saveRDS()/readRDS()` or `dput()/dget()`, but the factor varible `artist_name` will change into charactor if we are using`write_csv()/read_csv()`.*
+*According to the results, we find that there is no change if using `saveRDS()/readRDS()` or `dput()/dget()`, but the `factor` varible `artist_name` will change into `charactor` if we are using`write_csv()/read_csv()`.*
 
 Visualization design
 --------------------
 
 *Remake at least one figure or create a new one, in light of something you learned in the recent class meetings about visualization design and color. Maybe juxtapose your first attempt and what you obtained after some time spent working on it. Reflect on the differences.*
 
+1.  First I want to make plots about the artist\_familiarity changes for different artist and highlight "Mariah Carey".
+
+``` r
+plot1 <- singer_locations %>% 
+  filter(year >= 1980) %>% 
+  ggplot(aes(x = year, y = artist_familiarity)) +
+  geom_line(aes(group = artist_name,
+                color = artist_name == "Mariah Carey", 
+                alpha = artist_name == "Mariah Carey"))+
+  scale_colour_manual("", 
+                        labels=c("Other Singers", "Mariah Carey"),
+                        values=c("black", "blue"))+
+  scale_alpha_discrete(range = c(0.2,1),
+                       guide = FALSE) +
+  labs(title="Artist_familiarity changes by time")+
+  theme_bw()+
+  theme( axis.title = element_text(size = 10),
+         plot.title = element_text(size = 10, face = "bold", hjust = 0.5))
+plot1
+```
+
+![](hw05-Tang-Jiahui_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-15-1.png)
+
+1.  
+
+``` r
+plot2 <- singer_year_dropped %>% 
+  filter(artist_familiarity >= 0.8, year >= 2000) %>% 
+  ggplot()
+```
+
+    ## Warning in Ops.factor(year, 2000): '>=' not meaningful for factors
+
 Writing figures to file
 -----------------------
 
 *Use`ggsave()`to explicitly save a plot to file. Then use`![Alt text](/path/to/img.png)`to load and embed it in your report.*
+
+-   We can use the ggsave() function to save a plot to file. The last part of this assignment is to embed the figure into the report. This is achieved using `![Alt text](/path/to/img.png)`
+
+``` r
+ggsave("Artist_familiarity changes by time.png", 
+       plot = plot1, device = "png", width = 10, 
+       height = 7,dpi = 500)
+```
+
+![Alt text](/Users/tangjiahui/STAT545-hw-Tang-Jiahui/hw05/Artist_familiarity%20changes%20by%20time.png)
 
 But I want to do more!
 ----------------------
