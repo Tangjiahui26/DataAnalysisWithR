@@ -190,5 +190,5 @@ webshot("map.html", file = "map.png",
 ![](work_with_the_singer_data_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-4-1.png)
 
 ``` r
-mapshot(map, file = "./map.png")
+#mapshot(map, file = "./map.png")
 ```
