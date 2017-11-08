@@ -8,7 +8,8 @@ Hi, Everyone! Welcome to this repo for Homework06.:smirk:
 ### [Homework 06: Data wrangling wrap up](http://stat545.com/hw06_data-wrangling-conclusion.html)
 
 ***Character data:white_check_mark:***
-***Please check .html files if you want to review this part.***
+
+***!!!Please download and check .html file if you want to review this part.!!!***
 
 Read and work the exercises in the [Strings chapter](http://r4ds.had.co.nz/strings.html) or R for Data Science.
 
