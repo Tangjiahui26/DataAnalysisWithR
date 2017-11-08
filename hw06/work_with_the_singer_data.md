@@ -178,7 +178,7 @@ result
     ##  [1]  TRUE  TRUE  TRUE    NA  TRUE    NA  TRUE  TRUE  TRUE  TRUE  TRUE
     ## [12] FALSE  TRUE  TRUE FALSE  TRUE  TRUE    NA    NA    NA
 
-*From the result we can find that all "NA" and "FALSE" means there are incorrect in my way. Actually it has some true nagetives like `Stump Springs Rd, Lakeshore, CA 93634 USA and "California"`,`"An der Evangelischen Kirche 6", 53113 Bonn, Germany" and "Bonn"`. Besides, it also has some false postives like`"320-398 Van Ness Ave, San Francisco, CA 94102, USA" and "New York, NY"`.I did not find a better way to verify these information, but the results are kind of acceptable.*
+*From the result we can find that all "NA" and "FALSE" means there are incorrect in my way. Actually it has some false negative results like `Stump Springs Rd, Lakeshore, CA 93634 USA and "California"`,`"An der Evangelischen Kirche 6", 53113 Bonn, Germany" and "Bonn"`.I did not find a better way to verify these information, but the results are kind of acceptable.*
 
 -   Give a look to the library leaflet and plot some information about the bands.
 

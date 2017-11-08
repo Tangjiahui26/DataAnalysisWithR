@@ -34,7 +34,7 @@ your rmarkdown file:
 
 Note however that the HTML output will not be visible in non-HTML formats.
 ```
-2. As for the second part, I did not find a better way to verify these information, but the results are kind of acceptable. Actually it has some true nagetives like `Stump Springs Rd, Lakeshore, CA 93634 USA	and "California"`,`"An der Evangelischen Kirche 6", 53113 Bonn, Germany" and "Bonn"`. Besides, it also has some false postives like`"320-398 Van Ness Ave, San Francisco, CA 94102, USA" and "New York, NY"`.
+2. As for the second part, I did not find a better way to verify these information, but the results are kind of acceptable. Actually it has some false negative results like `Stump Springs Rd, Lakeshore, CA 93634 USA	and "California"`,`"An der Evangelischen Kirche 6", 53113 Bonn, Germany" and "Bonn"`.
 
 ## Links
 
