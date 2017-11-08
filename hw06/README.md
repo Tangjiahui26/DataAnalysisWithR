@@ -13,6 +13,8 @@ Hi, Everyone! Welcome to this repo for Homework06.:smirk:
 
 ***!!!Please download .html or check .pdf file if you want to review this part.!!!***
 
+[hw06-Tang-Jiahui.pdf](https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/blob/master/hw06/hw06-Tang-Jiahui.pdf)
+
 Read and work the exercises in the [Strings chapter](http://r4ds.had.co.nz/strings.html) or R for Data Science.
 
 ***Work with the`singer`data:white_check_mark:***
