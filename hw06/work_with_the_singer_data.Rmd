@@ -94,12 +94,13 @@ result
 map <- leaflet()  %>%   
 addTiles() %>%
 addCircles( lat=filter_NA_locations$latitude,lng=filter_NA_locations$longitude,
-            popup = filter_NA_locations$title)
+            popup = filter_NA_locations$title) %>% 
+  addProviderTiles(providers$OpenStreetMap)
 
 saveWidget(map, "map.html", selfcontained = FALSE)
 webshot("map.html", file = "map.png",
         cliprect = "viewport")
 
-mapshot(map, file = "./map.png")
+#mapshot(map, file = "./map.png")
 ```
 
