@@ -9,7 +9,9 @@ Hi, Everyone! Welcome to this repo for Homework06.:smirk:
 
 ***Character data:white_check_mark:***
 
-***!!!Please download and check .html file if you want to review this part.!!!***
+***!!!The .md file is disordered because of Str_view()!!!***
+
+***!!!Please download .html or check .pdf file if you want to review this part.!!!***
 
 Read and work the exercises in the [Strings chapter](http://r4ds.had.co.nz/strings.html) or R for Data Science.
 
