@@ -91,12 +91,15 @@ knitr::kable(locations)
 
 -   Then we should figure out wether the place in city corresponds to the information you retrieved.
 
+*To check how many places were correctly predicted by`revgeocode()`, I firstly made all the city variables separate into single words and also deleted all punctuation.* *Then as for the information I retrieved from `revgeocode()`, I did the similar operations: first using regexp to find all City names(I assume that the words between "," are city names), abbreviations like "NY" and "USA"（all capitalized words). Then I replaced all "," to make it cleaner.* *Last I just compared all columns and return "TRUE" or "FALSE" to get the final result. Although the way I uesd is kind of "brute force", I didnot figure out a better way to solve it.*
+
 ``` r
+#divide into single words.
 city_new<-filter_NA_locations %>% 
  select(city) %>% 
  separate(city,into = c("1","2","3"),sep=" ") 
+#delete punctuation
 city_new <- mapply(str_replace_all,city_new,"[[:punct:]]","") 
-
 knitr::kable(city_new)
 ```
 
@@ -124,6 +127,7 @@ knitr::kable(city_new)
 | KENT         | WASHINGTON | NA      |
 
 ``` r
+#using regexp to find all City names, abbreviations like "NY" and "USA"
 loc_chr <- as.character(loc)
 loc_chr_new <- str_extract_all(loc_chr[str_detect(loc_chr,
                                               "\\, [A-Z0-9].*[a-z]\\,|\\b[A-Z]{2,}\\b")],
@@ -157,6 +161,7 @@ knitr::kable(loc_chr_new)
 | Kent          | WA  | USA |
 
 ``` r
+#Compare
 a <- (loc_chr_new[,1]==city_new[,1])
 b <- (loc_chr_new[,1]==city_new[,2])
 c <- (loc_chr_new[,1]==city_new[,3])
@@ -173,7 +178,11 @@ result
     ##  [1]  TRUE  TRUE  TRUE    NA  TRUE    NA  TRUE  TRUE  TRUE  TRUE  TRUE
     ## [12] FALSE  TRUE  TRUE FALSE  TRUE  TRUE    NA    NA    NA
 
-*Finally We can use leaflet() to p*
+*From the result we can find that all "NA" and "FALSE" means there are incorrect in my way. Actually it has some true nagetives like `Stump Springs Rd, Lakeshore, CA 93634 USA and "California"`,`"An der Evangelischen Kirche 6", 53113 Bonn, Germany" and "Bonn"`. Besides, it also has some false postives like`"320-398 Van Ness Ave, San Francisco, CA 94102, USA" and "New York, NY"`.I did not find a better way to verify these information, but the results are kind of acceptable.*
+
+-   Give a look to the library leaflet and plot some information about the bands.
+
+*Finally We can use leaflet() to plot some information about the bands. Making a map figure is kind of easy, but I dont konw how to convert it into a .png file. I looked around on the Internet, and finally found a way to realized it like codes showing below. Actually we can also use`![Alt text](./map.png)` once we have a png picture.*
 
 ``` r
 map <- leaflet()  %>%   
