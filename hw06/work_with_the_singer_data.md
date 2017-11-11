@@ -53,9 +53,8 @@ reverse geocode failed - bad location? location = "-87.63241"reverse geocode fai
 #View(singer_locations)
 #First we need to filter all rows with latitude and longitude are NAs.
 filter_NA_locations <- singer_locations %>% 
-  filter(!is.na(latitude) | !is.na(longitude)) %>% 
-      mutate(id = 1:nrow(.)) %>% 
-      filter(id <= 20)
+  filter(!is.na(latitude) | !is.na(longitude))
+filter_NA_locations <- head(filter_NA_locations,20)
 #glimpse(filter_NA_locations)
 
 #Then we use map2 to apply revgeocode
@@ -99,7 +98,7 @@ city_new<-filter_NA_locations %>%
  select(city) %>% 
  separate(city,into = c("1","2","3"),sep=" ") 
 #delete punctuation
-city_new <- mapply(str_replace_all,city_new,"[[:punct:]]","") 
+city_new <- mapply(str_replace_all,city_new,",|-","") 
 knitr::kable(city_new)
 ```
 
@@ -191,13 +190,11 @@ addCircles( lat=filter_NA_locations$latitude,lng=filter_NA_locations$longitude,
             popup = filter_NA_locations$title) %>% 
   addProviderTiles(providers$OpenStreetMap)
 
-saveWidget(map, "map.html", selfcontained = FALSE)
-webshot("map.html", file = "map.png",
-        cliprect = "viewport")
-```
+#saveWidget(map, "map.html", selfcontained = FALSE)
+#webshot("map.html", file = "map.png",
+#        cliprect = "viewport")
 
-![](work_with_the_singer_data_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-4-1.png)
-
-``` r
 #mapshot(map, file = "./map.png")
 ```
+
+![Alt text](./map.png)
