@@ -5,6 +5,7 @@ clean:
 	rm -f iso-codes.tsv
 	rm -f data_frame.rds
 	rm -f figures.rds
+	rm -f *.png
 
 #gap-every-five-years.tsv:
 #	curl -L https://raw.githubusercontent.com/jennybc/gapminder/master/inst/extdata/gapminder.tsv >gap-every-five-years.tsv
