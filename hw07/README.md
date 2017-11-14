@@ -24,7 +24,11 @@ You can use Make, Remake or (if you feel the urge for something more) a combinan
 ## Report My Process
 
 1.
+gapminder
 Error in file(file, "rt"): 
 
-## Links
 
+## Links
+[](http://stat545.com/block024_group-nest-split-map.html)
+[](https://www.rdocumentation.org/packages/broom/versions/0.4.2)
+[](https://github.com/lindenb/makefile2graph)
