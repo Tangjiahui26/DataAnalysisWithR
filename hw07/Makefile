@@ -1,4 +1,4 @@
-all: linear-regression.rds
+all: hw07-Tang-Jiahui.html
 
 clean:
 	rm -f gap-every-five-years.tsv
@@ -28,3 +28,6 @@ reordered.rds: 03_reordered.R figures.rds
 linear-regression.rds: 04_linear-regression.R reordered.rds
 	Rscript $<
 	rm -f Rplots.pdf
+	
+hw07-Tang-Jiahui.html: hw07-Tang-Jiahui.Rmd gap-every-five-years.tsv
+	Rscript -e 'rmarkdown::render("$<")'

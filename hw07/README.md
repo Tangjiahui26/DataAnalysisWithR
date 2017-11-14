@@ -23,7 +23,8 @@ You can use Make, Remake or (if you feel the urge for something more) a combinan
 
 ## Report My Process
 
-1.
+![Alt text](./out.png)
+
 gapminder
 Error in file(file, "rt"): 
 
