@@ -30,7 +30,7 @@ intercepts_and_slope <- country_nested %>%
                              `(Intercept)` = "intercept",
                              `I(year - 1950)` = "slope"))
 intercepts_and_slope %>% 
-    saveRDS("intercepts_and_slope.rds")
+    saveRDS("./files/intercepts_and_slope.rds")
 
 #Create a figure for each continent, and write one file per continent, with an informative name. 
 
@@ -47,7 +47,7 @@ Asia <- country_codes %>%
           strip.text = element_text(size=10, face="bold",hjust=0.5))+
     labs(title="Asia-scatterplots of life expectancy_vs_year")
 
-ggsave("Asia-scatterplots of life expectancy_vs_year.png",Asia,device = "png", width = 10, 
+ggsave("./figures/Asia-scatterplots of life expectancy_vs_year.png",Asia,device = "png", width = 10, 
        height = 7,dpi = 500)
 
 Americas <- country_codes %>% 
@@ -63,7 +63,7 @@ Americas <- country_codes %>%
           strip.text = element_text(size=10, face="bold",hjust=0.5))+
     labs(title="Americas-scatterplots of life expectancy_vs_year")
 
-ggsave("Americas-scatterplots of life expectancy_vs_year.png",Americas,device = "png", width = 10, 
+ggsave("./figures/Americas-scatterplots of life expectancy_vs_year.png",Americas,device = "png", width = 10, 
        height = 7,dpi = 500)
 
 Africa <- country_codes %>% 
@@ -79,7 +79,7 @@ Africa <- country_codes %>%
           strip.text = element_text(size=10, face="bold",hjust=0.5))+
     labs(title="Africa-scatterplots of life expectancy_vs_year")
 
-ggsave("Africa-scatterplots of life expectancy_vs_year.png",Africa,device = "png", width = 10, 
+ggsave("./figures/Africa-scatterplots of life expectancy_vs_year.png",Africa,device = "png", width = 10, 
        height = 7,dpi = 500)
 
 Europe <- country_codes %>% 
@@ -95,7 +95,7 @@ Europe <- country_codes %>%
           strip.text = element_text(size=10, face="bold",hjust=0.5))+
     labs(title="Europe-scatterplots of life expectancy_vs_year")
 
-ggsave("Europe-scatterplots of life expectancy_vs_year.png",Europe,device = "png", width = 10, 
+ggsave("./figures/Europe-scatterplots of life expectancy_vs_year.png",Europe,device = "png", width = 10, 
        height = 7,dpi = 500)
 
 Oceania <- country_codes %>% 
@@ -111,7 +111,7 @@ Oceania <- country_codes %>%
           strip.text = element_text(size=10, face="bold",hjust=0.5))+
     labs(title="Oceania-scatterplots of life expectancy_vs_year")
 
-ggsave("Oceania-scatterplots of life expectancy_vs_year.png",Oceania,device = "png", width = 10, 
+ggsave("./figures/Oceania-scatterplots of life expectancy_vs_year.png",Oceania,device = "png", width = 10, 
        height = 7,dpi = 500)
 
 #find the best and worst 4 countries in Asia
@@ -132,6 +132,6 @@ Asia_worst4 <- country_nested %>%
 #knitr::kable(Asia_worst4)
 
 Asia_best4 %>% 
-    saveRDS("Asia_best4.rds")
+    saveRDS("./files/Asia_best4.rds")
 Asia_worst4 %>% 
-    saveRDS("Asia_worst4.rds")
+    saveRDS("./files/Asia_worst4.rds")

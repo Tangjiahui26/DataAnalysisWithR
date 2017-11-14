@@ -24,7 +24,7 @@ P5 <- reordered_data %>%
           plot.title=element_text(hjust=0.5)) +
     labs(title="LifeExp for each continent reordered")
 
-ggsave("MaxLifeExp for each continent reordered.png",P5,device = "png", width = 10, 
+ggsave("./figures/MaxLifeExp for each continent reordered.png",P5,device = "png", width = 10, 
        height = 7,dpi = 500)
 
 P6 <- country_codes %>% 
@@ -39,7 +39,7 @@ P6 <- country_codes %>%
     labs(title="LifeExp for each continent without reordered") +
     scale_y_continuous("MaxLifeExp")   
 
-ggsave("MaxLifeExp for each continent unreordered.png",P6,device = "png", width = 10, 
+ggsave("./figures/MaxLifeExp for each continent unreordered.png",P6,device = "png", width = 10, 
        height = 7,dpi = 500)
 
 reordered_data %>% 

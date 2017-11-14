@@ -27,7 +27,7 @@ P1 <- country_codes %>%
     labs(title="GdpPercap for all continents")+
     scale_colour_discrete("Max_GdpPercap/Min_GdpPercap")
 #print(P1)   
-ggsave("GdpPercap for all continents.png",P1,device = "png", width = 10, 
+ggsave("./figures/GdpPercap for all continents.png",P1,device = "png", width = 10, 
        height = 7,dpi = 500)
 
 #The spread of GDP per capita within the continents
@@ -44,7 +44,7 @@ P2 <- country_codes %>%
           strip.text = element_text(size=18, face="bold"))+
     labs(title="GdpPercap histogram for each continent")
  
-ggsave("GdpPercap histogram for each continent.png",P2,device = "png", width = 10, 
+ggsave("./figures/GdpPercap histogram for each continent.png",P2,device = "png", width = 10, 
        height = 7,dpi = 500)
 
 #Plot mean of life expectancy for different years
@@ -61,7 +61,7 @@ P3 <- ggplot(T2, aes(x = year, y = LifeExp)) +
     geom_line(aes(y = weighted_by_gdpPercap, color = "weighted_by_gdpPercap")) +
     labs(title = "Means of Life Expectancy for different years")
 
-ggsave("Means of Life Expectancy for different years.png",P3,device = "png", width = 10, 
+ggsave("./figures/Means of Life Expectancy for different years.png",P3,device = "png", width = 10, 
        height = 7,dpi = 500)
 
 #Make a plot of GDP for countries' iso_code between 120 and 170
@@ -79,7 +79,7 @@ P4 <- country_codes %>%
     labs(title="GDP for countries' iso_code between 120 and 170")+
     scale_y_continuous("GDP")   
 
-ggsave("GDP for some countries or areas.png",P4,device = "png", width = 10, 
+ggsave("./figures/GDP for some countries or areas.png",P4,device = "png", width = 10, 
        height = 7,dpi = 500)
 
 
