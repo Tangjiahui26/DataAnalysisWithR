@@ -1,0 +1,7 @@
+file.remove("./figures/*.png")
+file.remove("./files/*.rds")
+file.remove("Rplots.pdf")
+file.remove("figures.rds")
+file.remove("data_frame.rds")
+file.remove("iso-codes.tsv")
+file.remove("gap-every-five-years.tsv")
