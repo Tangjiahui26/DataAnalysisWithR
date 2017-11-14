@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">
+  <meta>
+    <creator>https://github.com/lindenb/makefile2graph version:1.5.0</creator>
+    <description>Creates a graph from a Makefile</description>
+  </meta>
+  <graph mode="static" defaultedgetype="directed">
+    <attributes class="node" mode="static"/>
+    <nodes>
+      <node id="n10" label="01_dataframe.R"/>
+      <node id="n8" label="02_figures.R"/>
+      <node id="n6" label="03_reordered.R"/>
+      <node id="n4" label="04_linear-regression.R"/>
+      <node id="n2" label="all"/>
+      <node id="n9" label="data_frame.rds"/>
+      <node id="n7" label="figures.rds"/>
+      <node id="n11" label="gap-every-five-years.tsv"/>
+      <node id="n3" label="linear-regression.rds"/>
+      <node id="n5" label="reordered.rds"/>
+    </nodes>
+    <edges>
+      <edge id="E1" type="directed" source="n3" target="n2"/>
+      <edge id="E2" type="directed" source="n10" target="n9"/>
+      <edge id="E3" type="directed" source="n11" target="n9"/>
+      <edge id="E4" type="directed" source="n8" target="n7"/>
+      <edge id="E5" type="directed" source="n9" target="n7"/>
+      <edge id="E6" type="directed" source="n4" target="n3"/>
+      <edge id="E7" type="directed" source="n5" target="n3"/>
+      <edge id="E8" type="directed" source="n6" target="n5"/>
+      <edge id="E9" type="directed" source="n7" target="n5"/>
+    </edges>
+  </graph>
+</gexf>
