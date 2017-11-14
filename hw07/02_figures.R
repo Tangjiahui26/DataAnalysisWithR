@@ -32,7 +32,7 @@ ggsave("GdpPercap for all continents.png",P1,device = "png", width = 10,
 
 #The spread of GDP per capita within the continents
 
-P2 <- gapminder %>%
+P2 <- country_codes %>%
     select(gdpPercap, continent) %>% 
     ggplot(aes(x = gdpPercap, color = continent))+
     geom_histogram() +
@@ -43,13 +43,13 @@ P2 <- gapminder %>%
           axis.title.y = element_text(size=15),
           strip.text = element_text(size=18, face="bold"))+
     labs(title="GdpPercap histogram for each continent")
-#print(P2)   
+ 
 ggsave("GdpPercap histogram for each continent.png",P2,device = "png", width = 10, 
        height = 7,dpi = 500)
 
 #Plot mean of life expectancy for different years
 
-T2 <- gapminder %>% 
+T2 <- country_codes %>% 
     group_by(year) %>% 
     summarise(mean_LifeExp = mean(lifeExp), 
               weighted_by_pop = weighted.mean(lifeExp, pop),
@@ -60,7 +60,26 @@ P3 <- ggplot(T2, aes(x = year, y = LifeExp)) +
     geom_line(aes(y = weighted_by_pop, color = "weighted_by_pop")) +
     geom_line(aes(y = weighted_by_gdpPercap, color = "weighted_by_gdpPercap")) +
     labs(title = "Means of Life Expectancy for different years")
+
 ggsave("Means of Life Expectancy for different years.png",P3,device = "png", width = 10, 
+       height = 7,dpi = 500)
+
+#Make a plot of GDP for countries' iso_code between 120 and 170
+
+P4 <- country_codes %>% 
+    filter(iso_num >120 & iso_num <170) %>% 
+    ggplot(aes(x = year, y = (gdpPercap*pop)))+
+    facet_wrap(~ country , scales = "free_y") +
+    geom_point(aes(color = country, size = 2)) +
+    theme_bw() +
+    theme(strip.background = element_rect(fill="grey"),
+    axis.title.x = element_text(size=15),
+    axis.title.y = element_text(size=15),
+    strip.text = element_text(size=10, face="bold",hjust=0.5))+
+    labs(title="GDP for countries' iso_code between 120 and 170")+
+    scale_y_continuous("GDP")   
+
+ggsave("GDP for some countries or areas.png",P4,device = "png", width = 10, 
        height = 7,dpi = 500)
 
 
