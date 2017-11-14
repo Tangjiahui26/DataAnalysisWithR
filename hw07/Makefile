@@ -5,7 +5,8 @@ clean:
 	rm -f iso-codes.tsv
 	rm -f data_frame.rds
 	rm -f figures.rds
-	rm -f *.png
+	rm -f ./figures/*.png
+	rm -f ./files/*.rds
 
 #gap-every-five-years.tsv:
 #	curl -L https://raw.githubusercontent.com/jennybc/gapminder/master/inst/extdata/gapminder.tsv >gap-every-five-years.tsv
@@ -29,5 +30,5 @@ linear-regression.rds: 04_linear-regression.R reordered.rds
 	Rscript $<
 	rm -f Rplots.pdf
 	
-hw07-Tang-Jiahui.html: hw07-Tang-Jiahui.Rmd gap-every-five-years.tsv
+hw07-Tang-Jiahui.html: hw07-Tang-Jiahui.Rmd linear-regression.rds gap-every-five-years.tsv
 	Rscript -e 'rmarkdown::render("$<")'
