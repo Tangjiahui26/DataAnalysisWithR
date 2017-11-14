@@ -5,6 +5,10 @@ Hi, Everyone! Welcome to this repo for Homework07.:smirk:
 
 ## Homework07 Materials
 
+[hw07-Tang-Jiahui.md](https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/blob/master/hw07/hw07-Tang-Jiahui.md)
+
+[Makefile](https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/blob/master/hw07/Makefile)
+
 ### [Homework 07: Automating Data-analysis Pipelines](https://stat545.com/hw07_automation.html)
 
 ***Big picture***
@@ -25,11 +29,17 @@ You can use Make, Remake or (if you feel the urge for something more) a combinan
 
 ![Alt text](./out.png)
 
+
+
+
+
 gapminder
 Error in file(file, "rt"): 
 
 
 ## Links
-[](http://stat545.com/block024_group-nest-split-map.html)
-[](https://www.rdocumentation.org/packages/broom/versions/0.4.2)
-[](https://github.com/lindenb/makefile2graph)
+[nesting](http://stat545.com/block024_group-nest-split-map.html)
+
+[broom](https://www.rdocumentation.org/packages/broom/versions/0.4.2)
+
+[makefile2graph](https://github.com/lindenb/makefile2graph)
