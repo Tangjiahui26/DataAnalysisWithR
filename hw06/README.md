@@ -1,5 +1,5 @@
 
-# STAT545-hw06-Jiahui-Tang
+# STAT547M-hw06-Jiahui-Tang
 
 Hi, Everyone! Welcome to this repo for Homework06.:smirk:
 

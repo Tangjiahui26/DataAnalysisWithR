@@ -1,7 +1,7 @@
 
-# STAT545-hw07-Jiahui-Tang
+# STAT547M-hw07-Jiahui-Tang
 
-Hi, Everyone! Welcome to this repo for Homework06.:smirk:
+Hi, Everyone! Welcome to this repo for Homework07.:smirk:
 
 ## Homework07 Materials
 
@@ -21,12 +21,10 @@ Hi, Everyone! Welcome to this repo for Homework06.:smirk:
     
 You can use Make, Remake or (if you feel the urge for something more) a combinantion of Make and Remake.
 
-
-
 ## Report My Process
 
-1. 
-
+1.
+Error in file(file, "rt"): 
 
 ## Links
 
