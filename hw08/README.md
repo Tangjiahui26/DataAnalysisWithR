@@ -16,3 +16,4 @@ The app we developed is functional, but there are plenty of improvements that ca
 
 ## Links
 
+[](https://stackoverflow.com/questions/34115076/shiny-app-checkboxinput-and-conditionalpanel)

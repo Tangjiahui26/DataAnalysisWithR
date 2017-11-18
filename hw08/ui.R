@@ -4,20 +4,26 @@ library(shiny)
 ui <- fluidPage(
     
     # App title ----
-    titlePanel("My liquor webpage"),
-    
+    titlePanel("My Liquor Store Webpage"),
+    sidebarLayout(
     sidebarPanel("This is my sidebar",
                  img(src = "Liquors.png", width = "100%"),
-                 radioButtons("typeInput", "Product type",
-                              choices = c("BEER", "REFRESHMENT", "SPIRITS", "WINE"),
-                              selected = "WINE"),
+                 br(),br(),
+                 wellPanel(
+                 uiOutput("typeInput"),
                  sliderInput("priceInput", "Price", min = 0, max = 100,
                              value = c(25, 40), pre = "$"),
-                 selectInput("countryInput", "Country",
-                             choices = c("CANADA", "FRANCE", "ITALY"))),
+                 checkboxInput("checkInput","Filter by country",value = FALSE),
+                 conditionalPanel(
+                     condition = "input.checkInput == 'TRUE'",
+                     uiOutput("countryOutput"))
+                 )),
     
-    
-    mainPanel(plotOutput("Mist_AlcCont"),
-              br(),br(),
-              tableOutput("table_head"))
+    mainPanel(
+        tabsetPanel(
+        tabPanel("Plot", plotOutput("Mist_AlcCont")),
+        tabPanel("Table", tableOutput("table_head"))
+        )
+    )
+  )
 )
