@@ -13,6 +13,11 @@ The app we developed is functional, but there are plenty of improvements that ca
 
 ## Report My Process
 
+ checkboxInput("checkInput","Filter by country",value = FALSE),
+               #  conditionalPanel(
+               #      condition = "input.checkInput == 'TRUE'",
+                     uiOutput("countryOutput"))
+                 )),
 
 ## Links
 
