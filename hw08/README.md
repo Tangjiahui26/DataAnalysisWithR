@@ -31,7 +31,7 @@ The app we developed is functional, but there are plenty of improvements that ca
 + Solve the warning message when the user selects filters that return 0 results. :white_check_mark:
 
     - Inside the filtered reactive function, we should check if the input exists, and if not then just return NULL.  
-    - *I have finished this part in advance, but actually I changed the`if else` statement with new logic to get multiple results later*.
+    - *I have finished this part in advance, but actually I changed the`if else` statement with new logics to get multiple results later*.
     
 + Place the plot and the table in separate tabs. :white_check_mark:
 
@@ -41,7 +41,7 @@ The app we developed is functional, but there are plenty of improvements that ca
     
 + Experiment with packages that add extra features to Shiny, such as`shinyjs, leaflet, shinydashboard, shinythemes, ggvis`. :white_check_mark:
 
-    - As I mentioned above, I used`shinyjs` to make my website more beautiful. In addition, I also applied`ggvis` to get more suitable plots for HTML instead of `ggplot`.
+    - As I mentioned above, I used`shinyjs` to make my website more beautiful. In addition, I also applied`ggvis` to get more suitable plots for HTML instead of using `ggplot`.
     
 + Show the number of results found whenever the filters change. :white_check_mark:
 
@@ -51,7 +51,7 @@ The app we developed is functional, but there are plenty of improvements that ca
     
 + Allow the usr to search for multiple alcohol types and countries simultaneously. :white_check_mark:
 
-    - I set a`checkbox` for user if they want to filter the results by countries. I also made the filter part multi-selection by adding some`if else` codes.
+    - I set a`checkbox` for user if they want to filter the results by countries. I also made the a multi-selection filter by adding some`if else` codes.
     
 ### Problems
 
@@ -80,7 +80,7 @@ The app we developed is functional, but there are plenty of improvements that ca
     })
 ```
 
-I found some questions similar on stackoverflow, and changed my codes as follow. `plotOutput()` also changed into `ggvisOutput`
+I found some similar questionson stackoverflow, and changed my codes as follows. `plotOutput()` also changed into `ggvisOutput`
 
 ```R
 reactive({
@@ -89,6 +89,8 @@ reactive({
             layer_histograms(width = 1, center = 0)
    }) %>% bind_shiny("Mist_AlcCont")
 ```
+Useful Links:
+
 [link1: how-is-data-passed-from-reactive-shiny-expression-to-ggvis-plot?](https://stackoverflow.com/questions/25011544/how-is-data-passed-from-reactive-shiny-expression-to-ggvis-plot?rq=1)
 
 [link2: reactivity-renderplot-not-working-in-ggvis-shiny](https://stackoverflow.com/questions/30566073/reactivity-renderplot-not-working-in-ggvis-shiny)
@@ -108,6 +110,8 @@ reactive({
     #later
     div(DT::dataTableOutput("table"), style = "font-size: 75%; width: 75%")
 ```
+Useful links:
+
 [link1: shrink-dtdatatableoutput-size](https://stackoverflow.com/questions/31921238/shrink-dtdatatableoutput-size)
     
 [link2: adjusting-the-width-of-the-datatable-using-dt-in-r](https://stackoverflow.com/questions/46709404/adjusting-the-width-of-the-datatable-using-dt-in-r?noredirect=1&lq=1)
