@@ -107,6 +107,7 @@ reactive({
     div(DT::dataTableOutput("table"), style = "font-size: 75%; width: 75%")
 ```
     [shrink-dtdatatableoutput-size](https://stackoverflow.com/questions/31921238/shrink-dtdatatableoutput-size)
+    
     [adjusting-the-width-of-the-datatable-using-dt-in-r](https://stackoverflow.com/questions/46709404/adjusting-the-width-of-the-datatable-using-dt-in-r?noredirect=1&lq=1)
 
 ## Links

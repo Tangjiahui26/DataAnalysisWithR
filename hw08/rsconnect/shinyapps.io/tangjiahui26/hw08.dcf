@@ -5,8 +5,8 @@ account: tangjiahui26
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 237016
-bundleId: 1084846
+bundleId: 1084920
 url: https://tangjiahui26.shinyapps.io/hw08/
-when: 1511139865.5272
+when: 1511144143.62413
 asMultiple: FALSE
 asStatic: FALSE
