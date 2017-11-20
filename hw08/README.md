@@ -49,7 +49,7 @@ The app we developed is functional, but there are plenty of improvements that ca
 
     - In this part, plots actually can be download by the default functions of`ggvis`, so I just set one downloadbox to store the table results.
     
-+ Allow the usr to search for multiple alcohol types and countries simultaneously.
++ Allow the usr to search for multiple alcohol types and countries simultaneously. :white_check_mark:
 
     - I set a`checkbox` for user if they want to filter the results by countries. I also made the filter part multi-selection by adding some`if else` codes.
     
@@ -89,9 +89,9 @@ reactive({
             layer_histograms(width = 1, center = 0)
    }) %>% bind_shiny("Mist_AlcCont")
 ```
-    [how-is-data-passed-from-reactive-shiny-expression-to-ggvis-plot?](https://stackoverflow.com/questions/25011544/how-is-data-passed-from-reactive-shiny-expression-to-ggvis-plot?rq=1)
-    [reactivity-renderplot-not-working-in-ggvis-shiny](https://stackoverflow.com/questions/30566073/reactivity-renderplot-not-working-in-ggvis-shiny)
-    [shiny-discuss](https://groups.google.com/forum/#!topic/shiny-discuss/-hJSr9NiYck)
+[how-is-data-passed-from-reactive-shiny-expression-to-ggvis-plot?](https://stackoverflow.com/questions/25011544/how-is-data-passed-from-reactive-shiny-expression-to-ggvis-plot?rq=1)
+[reactivity-renderplot-not-working-in-ggvis-shiny](https://stackoverflow.com/questions/30566073/reactivity-renderplot-not-working-in-ggvis-shiny)
+[shiny-discuss](https://groups.google.com/forum/#!topic/shiny-discuss/-hJSr9NiYck)
     
 3. I met with a silly error which took me a long time to solve. When choosing multiple countries or types, the number of results decreased instead of being larger. Then I found that I should change`==` into `%in%`, I think I still not so familiar with ShinyApp, especially the functions and its parameters and outputs.
 
@@ -106,9 +106,9 @@ reactive({
     #later
     div(DT::dataTableOutput("table"), style = "font-size: 75%; width: 75%")
 ```
-    [shrink-dtdatatableoutput-size](https://stackoverflow.com/questions/31921238/shrink-dtdatatableoutput-size)
+[shrink-dtdatatableoutput-size](https://stackoverflow.com/questions/31921238/shrink-dtdatatableoutput-size)
     
-    [adjusting-the-width-of-the-datatable-using-dt-in-r](https://stackoverflow.com/questions/46709404/adjusting-the-width-of-the-datatable-using-dt-in-r?noredirect=1&lq=1)
+[adjusting-the-width-of-the-datatable-using-dt-in-r](https://stackoverflow.com/questions/46709404/adjusting-the-width-of-the-datatable-using-dt-in-r?noredirect=1&lq=1)
 
 ## Links
 
