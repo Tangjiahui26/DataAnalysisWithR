@@ -1,7 +1,0 @@
----
-title: "README"
-author: "Jiahui Tang"
-date: '2017-11-21'
-output: github_document
----
-
