@@ -9,4 +9,4 @@ ios_codes <- read.delim("iso-codes.tsv")
 #gapminder and ios_codes of each countries
 country_codes <- left_join(gapminder, ios_codes)
 country_codes %>% 
-    saveRDS("01_dataframe.rds")
+    saveRDS("01_dataframe.tsv")

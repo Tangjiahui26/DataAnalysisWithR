@@ -15,10 +15,10 @@ clean:
 gap-every-five-years.tsv iso-codes.tsv:
 	Rscript 00_download-data.R
 	
-data_frame.rds: 01_dataframe.R gap-every-five-years.tsv iso-codes.tsv
+data_frame.tsv: 01_dataframe.R gap-every-five-years.tsv iso-codes.tsv
 	Rscript $<
 	
-figures.rds: 02_figures.R data_frame.rds
+figures.rds: 02_figures.R data_frame.tsv
 	Rscript $<
 	rm -f Rplots.pdf
 	
@@ -30,5 +30,5 @@ linear-regression.rds: 04_linear-regression.R reordered.rds
 	Rscript $<
 	rm -f Rplots.pdf
 	
-hw07-Tang-Jiahui.html: hw07-Tang-Jiahui.Rmd linear-regression.rds gap-every-five-years.tsv
+hw07-Tang-Jiahui.html: hw07-Tang-Jiahui.Rmd data_frame.tsv figures.rds reordered.rds linear-regression.rds
 	Rscript -e 'rmarkdown::render("$<")'

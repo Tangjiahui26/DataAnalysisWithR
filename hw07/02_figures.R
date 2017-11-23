@@ -3,7 +3,7 @@ library(tidyverse)
 library(forcats)
 knitr::opts_chunk$set(fig.width=13, fig.height=10)
 
-country_codes = readRDS("01_dataframe.rds")
+country_codes = readRDS("01_dataframe.tsv")
 gapminder <- read.delim("gap-every-five-years.tsv")
 ios_codes <- read.delim("iso-codes.tsv")
 
@@ -84,4 +84,4 @@ ggsave("./figures/GDP for some countries or areas.png",P4,device = "png", width 
 
 
 country_codes %>% 
-    saveRDS("02_figures.rds")
+    saveRDS("02_figures.tsv")
