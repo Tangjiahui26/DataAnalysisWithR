@@ -7,32 +7,35 @@
   <graph mode="static" defaultedgetype="directed">
     <attributes class="node" mode="static"/>
     <nodes>
-      <node id="n12" label="01_dataframe.R"/>
-      <node id="n10" label="02_figures.R"/>
-      <node id="n8" label="03_reordered.R"/>
-      <node id="n6" label="04_linear-regression.R"/>
+      <node id="n8" label="01_dataframe.R"/>
+      <node id="n6" label="02_figures.R"/>
+      <node id="n12" label="03_reordered.R"/>
+      <node id="n14" label="04_linear-regression.R"/>
       <node id="n2" label="all"/>
-      <node id="n11" label="data_frame.rds"/>
-      <node id="n9" label="figures.rds"/>
-      <node id="n13" label="gap-every-five-years.tsv"/>
+      <node id="n7" label="data_frame.tsv"/>
+      <node id="n5" label="figures.rds"/>
+      <node id="n9" label="gap-every-five-years.tsv"/>
       <node id="n4" label="hw07-Tang-Jiahui.Rmd"/>
       <node id="n3" label="hw07-Tang-Jiahui.html"/>
-      <node id="n5" label="linear-regression.rds"/>
-      <node id="n7" label="reordered.rds"/>
+      <node id="n10" label="iso-codes.tsv"/>
+      <node id="n13" label="linear-regression.rds"/>
+      <node id="n11" label="reordered.rds"/>
     </nodes>
     <edges>
       <edge id="E1" type="directed" source="n3" target="n2"/>
-      <edge id="E2" type="directed" source="n12" target="n11"/>
-      <edge id="E3" type="directed" source="n13" target="n11"/>
-      <edge id="E4" type="directed" source="n10" target="n9"/>
-      <edge id="E5" type="directed" source="n11" target="n9"/>
-      <edge id="E6" type="directed" source="n13" target="n3"/>
-      <edge id="E7" type="directed" source="n4" target="n3"/>
-      <edge id="E8" type="directed" source="n5" target="n3"/>
-      <edge id="E9" type="directed" source="n6" target="n5"/>
-      <edge id="E10" type="directed" source="n7" target="n5"/>
-      <edge id="E11" type="directed" source="n8" target="n7"/>
-      <edge id="E12" type="directed" source="n9" target="n7"/>
+      <edge id="E2" type="directed" source="n8" target="n7"/>
+      <edge id="E3" type="directed" source="n9" target="n7"/>
+      <edge id="E4" type="directed" source="n10" target="n7"/>
+      <edge id="E5" type="directed" source="n6" target="n5"/>
+      <edge id="E6" type="directed" source="n7" target="n5"/>
+      <edge id="E7" type="directed" source="n5" target="n3"/>
+      <edge id="E8" type="directed" source="n4" target="n3"/>
+      <edge id="E9" type="directed" source="n13" target="n3"/>
+      <edge id="E10" type="directed" source="n11" target="n3"/>
+      <edge id="E11" type="directed" source="n14" target="n13"/>
+      <edge id="E12" type="directed" source="n11" target="n13"/>
+      <edge id="E13" type="directed" source="n12" target="n11"/>
+      <edge id="E14" type="directed" source="n5" target="n11"/>
     </edges>
   </graph>
 </gexf>

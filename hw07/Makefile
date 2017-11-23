@@ -30,5 +30,5 @@ linear-regression.rds: 04_linear-regression.R reordered.rds
 	Rscript $<
 	rm -f Rplots.pdf
 	
-hw07-Tang-Jiahui.html: hw07-Tang-Jiahui.Rmd data_frame.tsv figures.rds reordered.rds linear-regression.rds
+hw07-Tang-Jiahui.html: hw07-Tang-Jiahui.Rmd figures.rds reordered.rds linear-regression.rds
 	Rscript -e 'rmarkdown::render("$<")'
