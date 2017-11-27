@@ -13,9 +13,9 @@ All Rscript files in the package are [here](https://github.com/Tangjiahui26/foof
 
 All test files are [here](https://github.com/Tangjiahui26/foofactors/tree/master/tests/testthat)
 
-**Please click the links above if you want to review my homework09**
+***Please click the links above if you want to review my homework09***
 
-**And put your peer review in the [issue](https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/issues/11) of this repo**
+***And put your peer review in the [issue](https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/issues/11) of this repo***
 
 ### Building your own R package
 
