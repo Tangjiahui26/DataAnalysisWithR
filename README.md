@@ -21,4 +21,4 @@ I hope I can learn some data analysis skills:smiley: and the use of R programmin
 | :seven:[Homework07](https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/tree/master/hw07) | November 14, 2017                     |:white_check_mark:Finished|
 | :eight:[Homework08](https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/tree/master/hw08) | November 21, 2017                     |:white_check_mark:Finished|
 | :nine:[Homework09](https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/tree/master/hw09) | November 28, 2017                     |:white_check_mark:Finished|
-| :ten:[Homework10](https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/tree/master/hw10) | December 04, 2017                     |In Progress|
+| :one::zero:[Homework10](https://github.com/Tangjiahui26/STAT545-hw-Tang-Jiahui/tree/master/hw10) | December 04, 2017                     |In Progress|
