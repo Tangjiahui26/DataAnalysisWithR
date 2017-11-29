@@ -7,7 +7,7 @@ Hi, Everyone! Welcome to this repo for Homework09.:smirk:
 
 ### [Homework 09: Building your own R package](http://stat545.com/hw09_package.html)
 
-My`foofactors`package is [here](https://github.com/Tangjiahui26/foofactors), [README.md](https://github.com/Tangjiahui26/foofactors/blob/master/README.md)
+My`foofactors`package is [here](https://github.com/Tangjiahui26/foofactors), [README.md](https://github.com/Tangjiahui26/foofactors/blob/master/README.md),[vignettes](https://github.com/Tangjiahui26/foofactors/blob/master/vignettes/hello-foofactors.md)
 
 All Rscript files in the package are [here](https://github.com/Tangjiahui26/foofactors/tree/master/R)
 
@@ -58,6 +58,12 @@ output:
   rmarkdown::html_vignette:
     toc: true
     keep_md: true
+```
+Finally, I tried option 1 of Jenny's notes, and it worked:
+
+```R
+build_vignettes()
+## Build and reload !!!
 ```
 
 ## Links
