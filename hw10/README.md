@@ -20,14 +20,19 @@ Pick (at least) one of the exercises below. At least one prompt is given for eac
 
 Create a dataset with multiple records by requesting data from an API using the httr package.
 
-***Use an R package that wraps an API***
+GET() data from the API and convert it into a clean and tidy data frame. Store that as a file ready for (hypothetical!) downstream analysis. Do just enough basic exploration of the resulting data, possibly including some plots, that you and a reader are convinced you’ve successfully downloaded and cleaned it.
 
-Many APIs have purpose-built R packages that make it even easier to get data from them.
+***Scrape data***
 
-If you choose one of these options, then you need to go further and combine two datasets, at least one of which is from the web.
+Work through the final set of slides from the rOpenSci UseR! 2016 workshop. This will give you basic orientation, skills, and pointers on the rvest package.
+
+Scrape a multi-record dataset off the web! Convert it into a clean and tidy data frame. Store that as a file ready for (hypothetical!) downstream analysis. Do just enough basic exploration of the resulting data, possibly including some plots, that you and a reader are convinced you’ve successfully downloaded and cleaned it.
 
 ## Report My Process
 
+### BestPlaceCA
+
+### OMDbAPI
 
 
 ## Links
