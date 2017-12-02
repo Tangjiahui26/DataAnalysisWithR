@@ -13,7 +13,7 @@ Create a dataset with multiple records by requesting data from an API using the 
 
 GET() data from the API and convert it into a clean and tidy data frame. Store that as a file ready for (hypothetical!) downstream analysis. Do just enough basic exploration of the resulting data, possibly including some plots, that you and a reader are convinced you’ve successfully downloaded and cleaned it.
 
-+ **In this part, I created a project called [OMDbAPI](https://github.com/Tangjiahui26/BestPlaceCA). I used`make`to break my work into separate scripts, though I personally think that it will be better to build a R package for this part because I created some uesful functions.**
++ **In this part, I created a project called [OMDbAPI](https://github.com/Tangjiahui26/OMDbAPI). I used`make`to break my work into separate scripts, though I personally think that it will be better to build a R package for this part because I created some uesful functions.**
 
 ***Scrape data*** :white_check_mark:
 
@@ -25,7 +25,7 @@ Scrape a multi-record dataset off the web! Convert it into a clean and tidy data
 
 ## Report My Process
 
-### OMDbAPI
+### [OMDbAPI](https://github.com/Tangjiahui26/OMDbAPI)
 
 I used [OMDb API](http://www.omdbapi.com) to get some simple information about movies. Three functions were created to simplify the process:
 
@@ -50,7 +50,7 @@ Get_Ratings_By_name <- function(name, page = 1){
 }
 ```
 
-### BestPlaceCA
+### [BestPlaceCA](https://github.com/Tangjiahui26/BestPlaceCA)
 
 I followed the tutorial of @ropensci and scraped some data about the Cost-of-Living and Job of Counties in California. I used some functions like`read_html()`,`html_nodes()`and`html_attr()`to get useful data without using API. The website that I used is [bestplaces](https://www.bestplaces.net).
 
