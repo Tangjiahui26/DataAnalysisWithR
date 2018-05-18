@@ -4,7 +4,7 @@ Hi, Everyone! Welcome to this repo for STAT545 and feel free to look~
 
 ## Introduction
 
-My name is **Jiahui Tang**, and I go by Jarry. I am a new master of Engineering student in Electrical & Computer Engineering. I did my undergraduate study in Sichuan University(*Chengdu, China*), majoring in Information Security. Recently I am interested in areas of Software Engineering and Computer Systems.
+My name is **Jiahui Tang**, and I go by Jerry. I am a new master of Engineering student in Electrical & Computer Engineering. I did my undergraduate study in Sichuan University(*Chengdu, China*), majoring in Information Security. Recently I am interested in areas of Software Engineering and Computer Systems.
 
 I hope I can learn some data analysis skills:smiley: and the use of R programming Language by taking [STAT 545 & 547M](http://stat545.com).
 
